@@ -1,9 +1,19 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 // import { mSize, mColor, mFont, mOS, mStyle } from "../helpers/appStyle";
 
-export const BufferView = (storyFn) => (
-  <View style={{ flex: 1, marginVertical: 40, marginHorizontal: 20 }}>
+export const BufferView = storyFn => (
+  <View style={{flex: 1, marginVertical: 40, marginHorizontal: 20}}>
+    {storyFn()}
+  </View>
+);
+
+export const TopCenterView = storyFn => (
+  <View style={{flex: 1, marginVertical: 40}}>{storyFn()}</View>
+);
+
+export const CenterView = storyFn => (
+  <View style={{flex: 1, alignSelf: 'center', justifyContent: 'center'}}>
     {storyFn()}
   </View>
 );

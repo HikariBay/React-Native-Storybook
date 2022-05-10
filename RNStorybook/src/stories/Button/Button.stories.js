@@ -1,20 +1,21 @@
-import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react-native';
+import {action} from '@storybook/addon-actions';
+import {
+  withKnobs,
+  number,
+  text,
+  select,
+  color,
+  boolean,
+} from '@storybook/addon-knobs';
+import {storiesOf} from '@storybook/react-native';
 import React from 'react';
-import { Text } from 'react-native';
-import Button from '.';
-import CenterView from '../CenterView';
+import {Text, TouchableOpacity} from 'react-native';
+import {BufferView} from '../decorators';
 
 storiesOf('Button', module)
-  .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+  .addDecorator(BufferView)
   .add('with text', () => (
-    <Button onPress={action('clicked-text')}>
+    <TouchableOpacity onPress={action('clicked-text')}>
       <Text>{text('Button text', 'Hello Button')}</Text>
-    </Button>
-  ))
-  .add('with some emoji', () => (
-    <Button onPress={action('clicked-emoji')}>
-      <Text>😀 😎 👍 💯</Text>
-    </Button>
+    </TouchableOpacity>
   ));
