@@ -1,6 +1,6 @@
-#Storybook
+# Storybook
 
-##There is two kind of Storybook Project
+## There is two kind of Storybook Project
 
 RNStorybook is only use in mobile device only
 
