@@ -1,141 +1,119 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {mSize, mColor, mFont, mOS, mStyle} from '../../helpers/appStyle';
+import {Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 const Button = ({
   onPress = () => {},
-  backgroundColor,
-  small = false,
-  medium = false,
-  big = false,
-  showLeftIconImage = false,
-  leftIconImage,
-  showRightIconImage = false,
-  rightIconImage,
-  color,
+
+  buttonDisabled = false,
+  buttonWidth,
+  buttonFlexDirection,
+  buttonJustifyContent,
+  buttonPaddingVertical,
+  buttonPaddingHorizontal,
+  buttonBackgroundColor,
+  buttonBorderRadius,
+  buttonBorderWidth,
+  buttonBorderColor,
+
+  showButtonText = true,
   buttonText,
-  disabled = false,
+  fontcolor,
+  fontSize,
+  fontFamily,
+  fontWeight,
+
+  showLeftIconImage = false,
+  showRightIconImage = false,
+  iconWidth,
+  iconHeight,
+  leftIconMarginRight,
+  leftIconMarginBottom,
+  leftIconImage,
+  rightIconMarginLeft,
+  rightIconMarginTop,
+  rightIconImage,
 }) => {
-  const buttonContainer = [styles.buttonContainer];
-  const iconContainer = [styles.iconContainer];
-  const textContainer = [styles.textContainer];
-
-  if (small) {
-    buttonContainer.push(styles.smallContainer);
-    iconContainer.push(styles.smallIcon);
-    textContainer.push(styles.smallText);
-  }
-
-  if (medium) {
-    buttonContainer.push(styles.mediumContainer);
-    iconContainer.push(styles.mediumIcon);
-    textContainer.push(styles.mediumText);
-  }
-
-  if (big) {
-    buttonContainer.push(styles.bigContainer);
-    iconContainer.push(styles.bigIcon);
-    textContainer.push(styles.bigText);
-  }
-
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        disabled={disabled}
-        onPress={onPress}
-        style={[buttonContainer, {backgroundColor: backgroundColor}]}>
-        {showLeftIconImage && (
-          <Image style={[iconContainer]} source={leftIconImage} />
-        )}
-        <Text style={[textContainer, {color: color}]}>{buttonText}</Text>
-        {showRightIconImage && (
-          <Image style={[iconContainer]} source={rightIconImage} />
-        )}
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      disabled={buttonDisabled}
+      onPress={onPress}
+      style={[
+        styles.container,
+        {
+          width: buttonWidth,
+          flexDirection: buttonFlexDirection,
+          justifyContent: buttonJustifyContent,
+          paddingVertical: buttonPaddingVertical,
+          paddingHorizontal: buttonPaddingHorizontal,
+          backgroundColor: buttonBackgroundColor,
+          borderRadius: buttonBorderRadius,
+          borderWidth: buttonBorderWidth,
+          borderColor: buttonBorderColor,
+        },
+      ]}>
+      {showLeftIconImage && (
+        <Image
+          style={[
+            styles.icon,
+            {
+              width: iconWidth,
+              height: iconHeight,
+              marginRight: leftIconMarginRight,
+              marginBottom: leftIconMarginBottom,
+            },
+          ]}
+          source={leftIconImage}
+        />
+      )}
+
+      {showButtonText && (
+        <Text
+          style={[
+            styles.buttonText,
+            {
+              color: fontcolor,
+              fontSize: fontSize,
+              fontFamily: fontFamily,
+              fontWeight: fontWeight,
+            },
+          ]}>
+          {buttonText}
+        </Text>
+      )}
+
+      {showRightIconImage && (
+        <Image
+          style={[
+            styles.icon,
+            {
+              width: iconWidth,
+              height: iconHeight,
+              marginLeft: rightIconMarginLeft,
+              marginTop: rightIconMarginTop,
+            },
+          ]}
+          source={rightIconImage}
+        />
+      )}
+    </TouchableOpacity>
   );
 };
 
+export default Button;
+
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    alignItems: 'center',
   },
 
-  smallContainer: {
-    flexDirection: 'row',
-    paddingVertical: 18,
-    textAlign: 'left',
-    borderRadius: 5,
+  buttonText: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  smallIcon: {
+  icon: {
     justifyContent: 'center',
     alignSelf: 'center',
-    width: 13,
-    height: 13,
-    marginEnd: 10,
-  },
-
-  smallText: {
-    ...mStyle.smallText,
-    fontWeight: 'bold',
-    color: mColor.white,
-    flex: 1,
-    textAlign: 'center',
-  },
-
-  mediumContainer: {
-    flexDirection: 'row',
-    backgroundColor: mColor.black,
-    ...mStyle.smallText,
-    color: mColor.white,
-    paddingVertical: 18,
-    textAlign: 'left',
-    borderRadius: 5,
-  },
-
-  mediumIcon: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    width: 13,
-    height: 13,
-    marginEnd: 10,
-  },
-
-  mediumText: {
-    ...mStyle.buttonText,
-    fontWeight: 'bold',
-    color: mColor.white,
-    flex: 1,
-    textAlign: 'center',
-  },
-
-  bigContainer: {
-    flexDirection: 'row',
-    backgroundColor: mColor.black,
-    ...mStyle.smallText,
-    color: mColor.white,
-    paddingVertical: 18,
-    textAlign: 'left',
-    borderRadius: 5,
-  },
-
-  bigIcon: {
-    justifyContent: 'center',
-    alignSelf: 'center',
-    width: 13,
-    height: 13,
-    marginEnd: 10,
-  },
-
-  bigText: {
-    ...mStyle.subtitle,
-    fontWeight: 'bold',
-    color: mColor.white,
-    flex: 1,
-    textAlign: 'center',
   },
 });
-
-export default Button;

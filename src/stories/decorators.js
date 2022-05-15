@@ -1,151 +1,102 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {mSize, mColor, mFont, mOS, mStyle} from '../helpers/appStyle';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {mColor, mStyle} from '../helpers/appStyle';
 
 export const BufferView = storyFn => (
-  <View style={{flex: 1, marginVertical: 40, marginHorizontal: 20}}>
-    {storyFn()}
-  </View>
-);
-
-export const TopCenterView = storyFn => (
-  <View style={{flex: 1, marginVertical: 40}}>{storyFn()}</View>
-);
-
-export const CenterView = storyFn => (
-  <View style={{flex: 1, alignSelf: 'center', justifyContent: 'center'}}>
-    {storyFn()}
-  </View>
+  <ScrollView style={{...mStyle.mainContainer}}>
+    <View style={{marginHorizontal: 20, marginVertical: 40}}>{storyFn()}</View>
+  </ScrollView>
 );
 
 export const SBStyle = StyleSheet.create({
-  title: {
-    ...mStyle.title,
+  smallTextStyle: {
+    ...mStyle.message,
     textAlign: 'left',
-    paddingTop: 20,
-    paddingBottom: 30,
+    paddingVertical: 20,
+    color: mColor.CoolGrey040,
+    fontWeight: 'bold',
   },
 
-  subTitleStyle: {
-    ...mStyle.subtitle,
-    textAlign: 'left',
-    paddingVertical: 10,
+  changelogSubtextContainerStyle: {
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
 
-  subStyleSheetStyle: {
+  changelogSubtextStyle: {
     ...mStyle.subtitle,
     textAlign: 'left',
-    paddingTop: 30,
+    paddingTop: 10,
     paddingBottom: 10,
   },
 
-  designContainer: {
-    borderRadius: 5,
-    paddingVertical: 20,
-    marginVertical: 10,
+  changelogBulletDescription: {
+    ...mStyle.smallText,
+    textAlign: 'left',
   },
 
-  // Use for Transparent
-  designTransparentContainer: {
-    // backgroundColor: "#c9c9c9",
-    borderRadius: 5,
-    // padding: 40,
-    paddingVertical: 20,
-    marginVertical: 10,
-  },
-
-  // Use for White Text
-  designWhiteContainer: {
-    // backgroundColor: mColor.white,
-    borderRadius: 5,
-    // padding: 40,
-    paddingVertical: 20,
-    marginVertical: 10,
-  },
-
-  // Use for Fix Design - gray
-  designFixGrayContainer: {
-    // backgroundColor: "gray",
-    borderRadius: 5,
-    paddingVertical: 20,
-    marginVertical: 10,
-  },
-
-  // Use for Fix Design - white
-  designFixWhiteContainer: {
-    // backgroundColor: mColor.white,
-    borderRadius: 5,
-    paddingVertical: 20,
-    marginVertical: 10,
-  },
-
-  // Use in Animation, center the animation in middle
-  innerContainer: {
+  centerRowContainer: {
+    flexDirection: 'row',
     justifyContent: 'center',
     alignSelf: 'center',
   },
 
-  multipleTopTextStyle: {
-    ...mStyle.message,
+  headerTitle: {
+    ...mStyle.title,
     textAlign: 'left',
-    marginTop: 5,
-  },
-  multipleLastTextStyle: {
-    ...mStyle.message,
-    textAlign: 'left',
-    marginBottom: 20,
-  },
-
-  textStyle: {
-    ...mStyle.message,
-    textAlign: 'left',
-    marginBottom: 20,
-    marginTop: 5,
-  },
-
-  highlightTextStyle: {
-    ...mStyle.message,
-    backgroundColor: '#309eff',
-    color: mColor.white,
+    paddingTop: 20,
+    paddingBottom: 30,
     fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    marginTop: 10,
   },
 
-  codeContainer: {
-    backgroundColor: '#0d0045',
-    borderWidth: 1,
-    borderColor: '#3053ff',
-    borderRadius: 10,
-    marginVertical: 10,
-    paddingHorizontal: 15,
-  },
-
-  codeStyle: {
+  headerDescription: {
     ...mStyle.message,
-    color: 'white',
-    fontWeight: 'bold',
     textAlign: 'left',
-    fontSize: 14,
+    paddingVertical: 10,
   },
 
-  longCodeStyle: {
-    ...mStyle.smallText,
-    color: 'white',
+  headerSubtextStyle: {
+    ...mStyle.subtitle,
+    textAlign: 'left',
+    paddingTop: 10,
+    paddingBottom: 30,
+  },
+
+  headerBoldSubText: {
+    ...mStyle.subtitle,
+    textAlign: 'left',
+    paddingTop: 20,
+    paddingBottom: 30,
     fontWeight: 'bold',
+  },
+
+  bulletDescription: {
+    ...mStyle.message,
     textAlign: 'left',
   },
 
-  styleContainer: {
-    backgroundColor: '#2f0045',
-    borderWidth: 1,
-    borderColor: '#a230ff',
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    paddingVertical: 3,
-    marginVertical: 10,
+  displayUsageContainer: {
+    paddingVertical: 40,
+  },
+
+  componentHeaderStyle: {
+    ...mStyle.subtitle,
+    textAlign: 'left',
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+
+  spacing: {
+    paddingVertical: 10,
+  },
+
+  wholeViewSpacing: {
+    paddingVertical: 20,
+  },
+
+  LowViewSpacing: {
+    paddingBottom: 20,
   },
 
   hairline: {
