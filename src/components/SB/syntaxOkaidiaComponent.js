@@ -1,15 +1,15 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-import {twilight} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {okaidia} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
 
-const SyntaxTwilightComponent = ({code}) => {
+const SyntaxOkaidiaComponent = ({code}) => {
   return (
     <View>
       <SyntaxHighlighter
         language="javascript"
-        style={twilight}
+        style={okaidia}
         highlighter={'prism' || 'hljs'}>
         {code}
       </SyntaxHighlighter>
@@ -19,7 +19,7 @@ const SyntaxTwilightComponent = ({code}) => {
   );
 };
 
-export default SyntaxTwilightComponent;
+export default SyntaxOkaidiaComponent;
 
 const Style = StyleSheet.create({
   spacing: {

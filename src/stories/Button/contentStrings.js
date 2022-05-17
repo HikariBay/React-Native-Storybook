@@ -1,5 +1,15 @@
 /* eslint-disable quotes */
 
+export const QuestionContent = {
+  WHAT_IS_BUTTON: `What is Button?`,
+  BUTTON_DESCRIPTION: `Buttons allow users to take actions, and make choices, with a single tap.`,
+  WHERE_TO_USE_BUTTON: `Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:`,
+  BULLET_MODAL_WINDOW: `Modal windows`,
+  BULLET_FORM: `Forms`,
+  BULLET_CARDS: `Cards`,
+  BULLET_TOOLBARS: `Toolbars`,
+};
+
 export const TableContent = {
   TITLE_TYPE: `Type`,
   TITLE_DEFAULT: `Default`,
@@ -18,6 +28,17 @@ export const TableContent = {
   NONE: `none`,
   TRUE: `true`,
   FALSE: `false`,
+  HUNDRED_PRECENT: `100%`,
+  ZERO: 0,
+  ROW: 'row',
+  CENTER: 'center',
+  PADDINGVERTICAL: 18,
+  PADDING_HORIZONTAL: 20,
+  RADIUS: 7,
+  BUTTONTEXT: 'Button Text',
+  FONTSIZE: 16,
+  FONTWEIGHT: 'bold',
+  ICON_SIZE: 20,
 
   OPTIONAL: `optional`,
   YES: `yes`,
@@ -25,29 +46,16 @@ export const TableContent = {
   ONLY_REQUIRED: `only required`,
 };
 
-export const ButtonContent = {
-  HEADER_TITLE: `Button`,
-  HEADER_DESCRIPTION: `This page store button component, where you can test out props.`,
-
-  WHAT_IS_BUTTON: `What is Button?`,
-  BUTTON_DESCRIPTION: `Buttons allow users to take actions, and make choices, with a single tap.`,
-  WHERE_TO_USE_BUTTON: `Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:`,
-  MODAL_WINDOW: `Modal windows`,
-  FORM: `Forms`,
-  CARDS: `Cards`,
-  TOOLBARS: `Toolbars`,
-
-  USAGE_TITLE: `Usage`,
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button, it can be also be use to set custom Button components or can just use the code shown below.`,
-
-  PROPS_TITLE: `Props`,
-  PROPS_INSTRUCTION: `Click on the syntax, to show details of the prop`,
+export const FeaturePropsContent = {
+  FEATURE_BUTTON: `Button Feature`,
+  FEATURE_TEXT: `Text Feature`,
+  FEATURE_LEFT_ICON_FEATURE: `Left Icon Feature`,
+  FEATURE_RIGHT_ICON_FEATURE: `Right Icon Feature`,
 
   ONPRESS: `onPress = { function }`,
   TEXT_ONPRESS: `Use when it was needed to call a function when clicked.`,
 
-  BUTTON_DISABLED: `buttonDisabled`,
+  BUTTON_DISABLED: `buttonDisabled = {true|false}`,
   TEXT_BUTTON_DISABLED: `If true, it will disable the button`,
 
   BUTTON_WIDTH: `buttonWidth = { number | perecent }`,
@@ -77,7 +85,7 @@ export const ButtonContent = {
   BUTTON_BORDER_COLOR: `buttonBorderColor = { color HEX }`,
   TEXT_BUTTON_BORDER_COLOR: `Set border color of the button by inserting color HEX inside\n\nOnly required when buttonBorderWidth is used`,
 
-  SHOW_BUTTON_TEXT: 'showButtonText',
+  SHOW_BUTTON_TEXT: 'showButtonText = {true|false}',
   TEXT_SHOW_BUTTON_TEXT: `If true, it will show the button text`,
 
   BUTTON_TEXT: `buttonText = { string }`,
@@ -95,10 +103,10 @@ export const ButtonContent = {
   FONT_WEIGHT: `fontWeight = { fontWeight }`,
   TEXT_FONT_WEIGHT: `If showButtonText is true, set fontWeight of the text by inserting weight\n\n100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900`,
 
-  SHOW_LEFT_ICON_IMAGE: `showLeftIconImage`,
+  SHOW_LEFT_ICON_IMAGE: `showLeftIconImage = {true|false}`,
   TEXT_SHOW_LEFT_ICON_IMAGE: `If true, it will shown icon at the left side.`,
 
-  SHOW_RIGHT_ICON_IMAGE: `showRightIconImage`,
+  SHOW_RIGHT_ICON_IMAGE: `showRightIconImage = {true|false}`,
   TEXT_SHOW_RIGHT_ICON_IMAGE: `If true, it will shown icon at the right side.`,
 
   ICON_WIDTH: `iconWidth = { number }`,
@@ -123,64 +131,254 @@ export const ButtonContent = {
   TEXT_RIGHT_ICON_MARGIN_TOP: `If showRightIconImage is true, set marginTop of the right icon by inserting number`,
 
   RIGHT_ICON_IMAGE: `rightIconImage = { require( "Image URL" ) }`,
-  TEXT_RIGHT_ICON_IMAGE: `If showRightIconImage is true, set image of the left icon by inserting image url`,
+  TEXT_RIGHT_ICON_IMAGE: `If showRightIconImage is true, set image of the right icon by inserting image url`,
+};
 
+export const ButtonStoriesContent = {
   COMPONENTCODE: `Component Code  ( button.js )`,
   COMPONENTSTYLESHEET: `Component StyleSheet  ( button.js )`,
+  USAGE_TITLE: `Usage`,
+  IMPORT_CODE: `import Button 
+from '../../components/button/button';`,
+  PROPS_TITLE: `Props`,
+  PROPS_INSTRUCTION: `The props was separate with different features.
+\nClick on the one of the feature button below and you will see which of it needed to implement in order to show the feature in the button.
+\nOnce you clicked on the feature, there is many props display inside in order to know more information about the single prop, click on the prop button itself.`,
+  COMPONENT_CODE: `import React from 'react';
+import {Text, StyleSheet, Image, TouchableOpacity} from 'react-native';    
+
+const Button = ({
+  onPress = () => {},
+
+  buttonDisabled = false,
+  buttonWidth,
+  buttonFlexDirection,
+  buttonJustifyContent,
+  buttonPaddingVertical,
+  buttonPaddingHorizontal,
+  buttonBackgroundColor,
+  buttonBorderRadius,
+  buttonBorderWidth,
+  buttonBorderColor,
+
+  showButtonText = false,
+  buttonText,
+  fontcolor,
+  fontSize,
+  fontFamily,
+  fontWeight,
+
+  showLeftIconImage = false,
+  showRightIconImage = false,
+  iconWidth,
+  iconHeight,
+  leftIconMarginRight,
+  leftIconMarginBottom,
+  leftIconImage,
+  rightIconMarginLeft,
+  rightIconMarginTop,
+  rightIconImage,
+}) => {
+  return (
+    <TouchableOpacity
+      disabled={buttonDisabled}
+      onPress={onPress}
+      style={[
+        styles.container,
+        {
+          width: buttonWidth,
+          flexDirection: buttonFlexDirection,
+          justifyContent: buttonJustifyContent,
+          paddingVertical: buttonPaddingVertical,
+          paddingHorizontal: buttonPaddingHorizontal,
+          backgroundColor: buttonBackgroundColor,
+          borderRadius: buttonBorderRadius,
+          borderWidth: buttonBorderWidth,
+          borderColor: buttonBorderColor,
+        },
+      ]}>
+      {showLeftIconImage && (
+        <Image
+          style={[
+            styles.icon,
+            {
+              width: iconWidth,
+              height: iconHeight,
+              marginRight: leftIconMarginRight,
+              marginBottom: leftIconMarginBottom,
+            },
+          ]}
+          source={leftIconImage}
+        />
+      )}
+
+      {showButtonText && (
+        <Text
+          style={[
+            styles.buttonText,
+            {
+              color: fontcolor,
+              fontSize: fontSize,
+              fontFamily: fontFamily,
+              fontWeight: fontWeight,
+            },
+          ]}>
+          {buttonText}
+        </Text>
+      )}
+
+      {showRightIconImage && (
+        <Image
+          style={[
+            styles.icon,
+            {
+              width: iconWidth,
+              height: iconHeight,
+              marginLeft: rightIconMarginLeft,
+              marginTop: rightIconMarginTop,
+            },
+          ]}
+          source={rightIconImage}
+        />
+      )}
+    </TouchableOpacity>
+  );
 };
 
-export const WithTextContent = {
-  HEADER_TITLE: `Button with Text`,
-  HEADER_DESCRIPTION: `This page store normal button with text`,
+export default Button;`,
+  COMPONENT_STYLESHEET: `const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button with text only`,
-};
+  buttonText: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
-export const WithIconContent = {
-  HEADER_TITLE: `Button with Icon`,
-  HEADER_DESCRIPTION: `This page store normal button with icon`,
+  icon: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+});`,
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button with icon only`,
-};
+  S1_HEADER_TITLE: `Button Component`,
+  S1_HEADER_DESCRIPTION: `This page store button component, where you can test out addons knobs and all the props of the button.`,
+  S1_USAGE_IMPORT: `Import the button component in the script`,
+  S1_USAGE_FULL_CODE: `Full usage code of the button, it can be also be reuse to set custom components with it.
+\nSee more details in the props section below.`,
+  S1_USAGE_CODE: `<Button
+  onPress={function}
 
-export const CircleWithIconContent = {
-  HEADER_TITLE: `Button circle with Icon`,
-  HEADER_DESCRIPTION: `This page store a circle button with icon`,
+  buttonDisabled={true|false}
+  buttonWidth={'100%'}
+  buttonFlexDirection={'row'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={'red'} 
+  buttonBorderRadius={7}
+  buttonBorderWidth
+  buttonBorderColor
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button circle with icon only`,
-};
+  showButtonText={true|false}
+  buttonText={'Button'}
+  fontcolor={'white'}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
 
-export const WithLeftIconAndTextContent = {
-  HEADER_TITLE: `Button with Left Icon and Text`,
-  HEADER_DESCRIPTION: `This page store a normal button with left icon and text`,
+  showLeftIconImage={true|false}
+  showRightIconImage={true|false}  
+  iconWidth={20}
+  iconHeight={20}
+  leftIconMarginRight={10}
+  leftIconMarginBottom={0}
+  leftIconImage={require('../../assets/resources/ic_union.png')}     
+  rightIconMarginLeft={10}
+  rightIconMarginTop={0}
+  rightIconImage={require('../../assets/resources/ic_union.png')}
+/>`,
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button with left icon and text only`,
-};
+  S2_HEADER_TITLE: `Default, Outline and Disabled\nWith Text`,
+  S2_HEADER_DESCRIPTION: `This page store four button, with text, disabled text, ouline text and disabled ouline text, you can test out addons knobs if you are unsure.`,
+  S2_USAGE_IMPORT: `Import the button component in the script`,
+  S2_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
+\nSee more details in the props section below.`,
+  S2_USAGE_CODE: `// Default Button Text
+<Button
+  onPress={function}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  showButtonText={true}
+  buttonText={'Default Button Text'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+/>
 
-export const WithRightIconAndTextContent = {
-  HEADER_TITLE: `Button with Right Icon and Text`,
-  HEADER_DESCRIPTION: `This page store a normal button with right icon and text`,
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button with right icon and text only`,
-};
+// Disabled Button Text
+<Button
+  buttonDisabled={true}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  showButtonText={true}
+  buttonText={'Disabled Button Text'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+/>
 
-export const WithBothIconAndTextContent = {
-  HEADER_TITLE: `Button with Both Icon and Text`,
-  HEADER_DESCRIPTION: `This page store a normal button with both icon and text`,
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button with both icon and text only`,
-};
+// Outline Button Text
+<Button
+  onPress={function}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  buttonBorderWidth={4}
+  buttonBorderColor={mColor.CoolGrey040}
+  showButtonText={true}
+  buttonText={'Outline Button Text'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+/>
 
-export const CardWithIconAndTextContent = {
-  HEADER_TITLE: `Button Card with Icon and Text`,
-  HEADER_DESCRIPTION: `This page store a button card with icon and text`,
 
-  USAGE_IMPORT: `Import the button component in the script`,
-  USAGE_FULL_CODE: `Full usage code of the button card with icon and text only`,
+// Outline Disabled Button Text    
+<Button
+  buttonDisabled={true}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  buttonBorderWidth={4}
+  buttonBorderColor={mColor.CoolGrey040}
+  showButtonText={true}
+  buttonText={'Outline Disabled Button Text'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+/>
+`,
 };

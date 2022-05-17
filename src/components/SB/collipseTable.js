@@ -6,7 +6,7 @@ import {
 } from 'accordion-collapse-react-native';
 
 // Components
-import SyntaxTwilightComponent from './syntaxTwilightComponent';
+import SyntaxOkaidiaComponent from './syntaxOkaidiaComponent';
 import PropsTable from './propsTable';
 
 const CollipseTable = ({
@@ -19,7 +19,7 @@ const CollipseTable = ({
   return (
     <Collapse>
       <CollapseHeader>
-        <SyntaxTwilightComponent code={code} />
+        <SyntaxOkaidiaComponent code={code} />
       </CollapseHeader>
       <CollapseBody>
         <PropsTable

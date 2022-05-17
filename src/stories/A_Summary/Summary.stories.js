@@ -1,8 +1,7 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable no-unused-vars */
 
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import {action} from '@storybook/addon-actions';
 import {number, text, select, color, boolean} from '@storybook/addon-knobs';
@@ -23,7 +22,7 @@ import {
 import {Code} from './codeStrings';
 
 // SB Components
-import SyntaxTwilightComponent from '../../components/SB/syntaxTwilightComponent';
+import SyntaxOkaidiaComponent from '../../components/SB/syntaxOkaidiaComponent';
 import SquareColor from '../../components/SB/squareColor';
 
 // Components
@@ -60,7 +59,7 @@ storiesOf('Summary', module)
 
       <View style={SBStyle.spacing} />
 
-      <SyntaxTwilightComponent code={Code.HOW_TO_INSTALL} />
+      <SyntaxOkaidiaComponent code={Code.HOW_TO_INSTALL} />
 
       <Text style={SBStyle.headerDescription}>
         {Welcome.HEADER_DESCRIPTION_5}
@@ -68,7 +67,7 @@ storiesOf('Summary', module)
 
       <View style={SBStyle.spacing} />
 
-      <SyntaxTwilightComponent code={Code.START_ANDROID} />
+      <SyntaxOkaidiaComponent code={Code.START_ANDROID} />
     </View>
   ))
   .add('changelogs', () => (
@@ -85,21 +84,22 @@ storiesOf('Summary', module)
           <Text style={SBStyle.changelogSubtextStyle}>
             {ChangeLogContentTitle.NEW_FEATURES}
           </Text>
-          <FlatList
-            data={[
-              {key: `${ChangeLogDateContent.V_01_NEW_FEATURE_1}`},
-              {key: `${ChangeLogDateContent.V_01_NEW_FEATURE_2}`},
-              {key: `${ChangeLogDateContent.V_01_NEW_FEATURE_3}`},
-              {key: `${ChangeLogDateContent.V_01_NEW_FEATURE_4}`},
-              {key: `${ChangeLogDateContent.V_01_NEW_FEATURE_5}`},
-            ]}
-            renderItem={({item}) => (
-              <Text style={SBStyle.changelogBulletDescription}>
-                {'  \u2B24' + '     '}
-                {item.key}
-              </Text>
-            )}
-          />
+
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_1}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_2}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_3}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_4}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_5}`}
+          </Text>
         </View>
 
         {/* Documentation */}
@@ -107,19 +107,16 @@ storiesOf('Summary', module)
           <Text style={SBStyle.changelogSubtextStyle}>
             {ChangeLogContentTitle.DOCUMENTATION}
           </Text>
-          <FlatList
-            data={[
-              {key: `${ChangeLogDateContent.V_01_DOCUMENTATION_1}`},
-              {key: `${ChangeLogDateContent.V_01_DOCUMENTATION_2}`},
-              {key: `${ChangeLogDateContent.V_01_DOCUMENTATION_3}`},
-            ]}
-            renderItem={({item}) => (
-              <Text style={SBStyle.changelogBulletDescription}>
-                {'  \u2B24' + '     '}
-                {item.key}
-              </Text>
-            )}
-          />
+
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_1}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_2}`}
+          </Text>
+          <Text style={SBStyle.changelogBulletDescription}>
+            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_3}`}
+          </Text>
         </View>
       </View>
     </View>
@@ -132,7 +129,7 @@ storiesOf('Summary', module)
         {Colors.HEADER_DESCRIPTION_1}
       </Text>
 
-      <SyntaxTwilightComponent code={Code.MCOLOR_CODE} />
+      <SyntaxOkaidiaComponent code={Code.MCOLOR_CODE} />
 
       <View style={SBStyle.hairline} />
 

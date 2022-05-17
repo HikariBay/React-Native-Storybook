@@ -2,12 +2,76 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
-import {mColor, mStyle} from '../helpers/appStyle';
+import {mColor, mStyle, mTheme} from '../helpers/appStyle';
+
+// SB Components
+import SyntaxDarculaComponent from '../components/SB/syntaxDarculaComponent';
+import SyntaxOkaidiaComponent from '../components/SB/syntaxOkaidiaComponent';
 
 export const BufferView = storyFn => (
   <ScrollView style={{...mStyle.mainContainer}}>
     <View style={{marginHorizontal: 20, marginVertical: 40}}>{storyFn()}</View>
   </ScrollView>
+);
+
+export const HeaderContent = ({headerTitle, headerDescription}) => (
+  <View>
+    <Text style={SBStyle.headerTitle}>{headerTitle}</Text>
+
+    <Text style={SBStyle.headerDescription}>{headerDescription}</Text>
+
+    <View style={SBStyle.hairline} />
+  </View>
+);
+
+export const UsageContent = ({
+  usageTitle,
+  usageImportText,
+  importCode,
+  usageFullCodeText,
+  usageFullCode,
+}) => (
+  <View>
+    <Text style={SBStyle.headerSubtextStyle}>{usageTitle}</Text>
+    <Text style={SBStyle.headerDescription}>{usageImportText}</Text>
+
+    <SyntaxOkaidiaComponent code={importCode} />
+
+    <Text style={SBStyle.headerDescription}>{usageFullCodeText}</Text>
+
+    <SyntaxOkaidiaComponent code={usageFullCode} />
+
+    <View style={SBStyle.hairline} />
+  </View>
+);
+
+export const PropsContent = ({propsTitle, propsInstruction}) => (
+  <View>
+    <Text style={SBStyle.headerSubtextStyle}>{propsTitle}</Text>
+
+    <Text style={SBStyle.headerDescription}>{propsInstruction}</Text>
+
+    <View style={SBStyle.wholeViewSpacing} />
+  </View>
+);
+
+export const ComponentAndStyleSheetContent = ({
+  componentTitle,
+  componentCode,
+  styleSheetTitle,
+  styleSheetCode,
+}) => (
+  <View>
+    <Text style={SBStyle.componentHeaderStyle}>{componentTitle}</Text>
+
+    <SyntaxDarculaComponent code={componentCode} />
+
+    <Text style={SBStyle.componentHeaderStyle}>{styleSheetTitle}</Text>
+
+    <SyntaxDarculaComponent code={styleSheetCode} />
+
+    <View style={SBStyle.spacing} />
+  </View>
 );
 
 export const SBStyle = StyleSheet.create({
@@ -54,6 +118,13 @@ export const SBStyle = StyleSheet.create({
     ...mStyle.message,
     textAlign: 'left',
     paddingVertical: 10,
+  },
+
+  buttonHeaderDescription: {
+    ...mStyle.message,
+    textAlign: 'left',
+    paddingVertical: 10,
+    color: mColor.coolGrey100,
   },
 
   headerSubtextStyle: {
