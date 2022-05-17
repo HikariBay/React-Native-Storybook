@@ -1,7 +1,6 @@
 /* eslint-disable quotes */
 
 export const TableContent = {
-  CLICKMORE: `Click to know more`,
   TITLE_TYPE: `Type`,
   TITLE_DEFAULT: `Default`,
   TITLE_REQUIRED: `Required`,
@@ -128,4 +127,60 @@ export const ButtonContent = {
 
   COMPONENTCODE: `Component Code  ( button.js )`,
   COMPONENTSTYLESHEET: `Component StyleSheet  ( button.js )`,
+};
+
+export const WithTextContent = {
+  HEADER_TITLE: `Button with Text`,
+  HEADER_DESCRIPTION: `This page store normal button with text`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button with text only`,
+};
+
+export const WithIconContent = {
+  HEADER_TITLE: `Button with Icon`,
+  HEADER_DESCRIPTION: `This page store normal button with icon`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button with icon only`,
+};
+
+export const CircleWithIconContent = {
+  HEADER_TITLE: `Button circle with Icon`,
+  HEADER_DESCRIPTION: `This page store a circle button with icon`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button circle with icon only`,
+};
+
+export const WithLeftIconAndTextContent = {
+  HEADER_TITLE: `Button with Left Icon and Text`,
+  HEADER_DESCRIPTION: `This page store a normal button with left icon and text`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button with left icon and text only`,
+};
+
+export const WithRightIconAndTextContent = {
+  HEADER_TITLE: `Button with Right Icon and Text`,
+  HEADER_DESCRIPTION: `This page store a normal button with right icon and text`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button with right icon and text only`,
+};
+
+export const WithBothIconAndTextContent = {
+  HEADER_TITLE: `Button with Both Icon and Text`,
+  HEADER_DESCRIPTION: `This page store a normal button with both icon and text`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button with both icon and text only`,
+};
+
+export const CardWithIconAndTextContent = {
+  HEADER_TITLE: `Button Card with Icon and Text`,
+  HEADER_DESCRIPTION: `This page store a button card with icon and text`,
+
+  USAGE_IMPORT: `Import the button component in the script`,
+  USAGE_FULL_CODE: `Full usage code of the button card with icon and text only`,
 };

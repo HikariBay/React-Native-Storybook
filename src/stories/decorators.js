@@ -78,6 +78,7 @@ export const SBStyle = StyleSheet.create({
 
   displayUsageContainer: {
     paddingVertical: 40,
+    alignItems: 'center',
   },
 
   componentHeaderStyle: {

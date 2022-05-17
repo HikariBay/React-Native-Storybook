@@ -5,9 +5,9 @@ const Button = ({
   onPress = () => {},
 
   buttonDisabled = false,
-  buttonWidth,
-  buttonFlexDirection,
-  buttonJustifyContent,
+  buttonWidth = '100%',
+  buttonFlexDirection = 'row',
+  buttonJustifyContent = 'center',
   buttonPaddingVertical,
   buttonPaddingHorizontal,
   buttonBackgroundColor,
@@ -15,7 +15,7 @@ const Button = ({
   buttonBorderWidth,
   buttonBorderColor,
 
-  showButtonText = true,
+  showButtonText = false,
   buttonText,
   fontcolor,
   fontSize,
@@ -48,6 +48,7 @@ const Button = ({
           backgroundColor: buttonBackgroundColor,
           borderRadius: buttonBorderRadius,
           borderWidth: buttonBorderWidth,
+
           borderColor: buttonBorderColor,
         },
       ]}>

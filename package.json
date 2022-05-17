@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook"
   },
@@ -41,5 +42,13 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+
+  "config":{
+    "react-native-storybook-loader":{
+      "searchDir": ["./src/stories", "./packages"],
+      "pattern": "**/*.stories.js",
+      "outputFile": "./storybook/storyLoader.js"
+    }
   }
 }
