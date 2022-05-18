@@ -20,6 +20,7 @@ configure(() => {
 const StorybookUIRoot = getStorybookUI({
   asyncStorage: null,
   port: 7007,
+  host: '192.168.1.7',
   onDeviceUI: true,
 });
 

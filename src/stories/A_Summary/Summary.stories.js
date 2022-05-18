@@ -76,47 +76,51 @@ storiesOf('Summary', module)
         {ChangeLogContentTitle.CHANGE_LOGS}
       </Text>
 
-      <Text style={SBStyle.headerBoldSubText}>{ChangeLogDateContent.V_01}</Text>
+      <View>
+        <Text style={SBStyle.headerBoldSubText}>
+          {ChangeLogDateContent.V_01}
+        </Text>
 
-      <View style={SBStyle.changelogSubtextContainerStyle}>
-        {/* New Features */}
-        <View style={SBStyle.LowViewSpacing}>
-          <Text style={SBStyle.changelogSubtextStyle}>
-            {ChangeLogContentTitle.NEW_FEATURES}
-          </Text>
+        <View style={SBStyle.changelogSubtextContainerStyle}>
+          {/* New Features */}
+          <View style={SBStyle.LowViewSpacing}>
+            <Text style={SBStyle.changelogSubtextStyle}>
+              {ChangeLogContentTitle.NEW_FEATURES}
+            </Text>
 
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_1}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_2}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_3}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_4}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_5}`}
-          </Text>
-        </View>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_1}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_2}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_3}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_4}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_NEW_FEATURE_5}`}
+            </Text>
+          </View>
 
-        {/* Documentation */}
-        <View style={SBStyle.LowViewSpacing}>
-          <Text style={SBStyle.changelogSubtextStyle}>
-            {ChangeLogContentTitle.DOCUMENTATION}
-          </Text>
+          {/* Documentation */}
+          <View style={SBStyle.LowViewSpacing}>
+            <Text style={SBStyle.changelogSubtextStyle}>
+              {ChangeLogContentTitle.DOCUMENTATION}
+            </Text>
 
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_1}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_2}`}
-          </Text>
-          <Text style={SBStyle.changelogBulletDescription}>
-            {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_3}`}
-          </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_1}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_2}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_01_DOCUMENTATION_3}`}
+            </Text>
+          </View>
         </View>
       </View>
     </View>

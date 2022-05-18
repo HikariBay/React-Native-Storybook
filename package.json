@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "prestorybook": "rnstl",
-    "storybook": "start-storybook -p 7007",
+    "storybook": "start-storybook -p 7007 -h 192.168.1.7",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -24,9 +24,9 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
-    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-actions": "^6.4",
     "@storybook/addon-knobs": "^5.3",
-    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-links": "^6.4",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/react-native": "^5.3.25",
