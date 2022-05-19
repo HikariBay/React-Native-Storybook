@@ -2,7 +2,9 @@
 
 Author: Bay Li Fang
 
-![storybook-logo](https://user-images.githubusercontent.com/73094811/169335977-132cfb3a-faf2-41be-b29c-a6ee2d0be91c.png)
+
+![0_ct24YpBUo7HxOBNF](https://user-images.githubusercontent.com/73094811/169338276-f21f917c-31dd-4f9c-b5b0-645fb00634dc.jpeg)
+
 
 ## Important to Note
 
