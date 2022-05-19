@@ -176,8 +176,7 @@ export const ButtonStoriesContent = {
 from '../../components/button/button';`,
   PROPS_TITLE: 'Props',
   PROPS_INSTRUCTION: `The props was separate with different features.
-\nClick on the one of the feature button below and you will see which of it needed to implement in order to show the feature in the button.
-\nOnce you clicked on the feature, there is many props display inside in order to know more information about the single prop, click on the prop button itself.`,
+\nClick on the feature button then the prop inside to know more information about it.`,
   COMPONENT_CODE: `import React from 'react';
 import {Text, StyleSheet, Image, TouchableOpacity} from 'react-native';    
 
@@ -186,6 +185,7 @@ const Button = ({
 
   buttonDisabled = false,
   buttonWidth,
+  buttonHeight,
   buttonFlexDirection,
   buttonJustifyContent,
   buttonPaddingVertical,
@@ -279,8 +279,10 @@ const Button = ({
   );
 };
 
-export default Button;`,
-  COMPONENT_STYLESHEET: `const styles = StyleSheet.create({
+export default Button;
+
+
+const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
   },
@@ -297,18 +299,19 @@ export default Button;`,
   },
 });`,
 
-  S1_HEADER_TITLE: 'Button Component',
-  S1_HEADER_DESCRIPTION: `This page store button component, where you can test out addons knobs and all the props of the button.
+  S0_HEADER_TITLE: 'Design Custom Button',
+  S0_HEADER_DESCRIPTION: `Design button to use in the project.
 
 If still unsure, you can see more details in the props section below.`,
-  S1_USAGE_IMPORT: 'Import the button component in the script',
-  S1_USAGE_FULL_CODE:
+  S0_USAGE_IMPORT: 'Import the button component in the script',
+  S0_USAGE_FULL_CODE:
     'Full usage code of the button, it can be also be reuse to set custom components with it.',
-  S1_USAGE_CODE: `<Button
+  S0_USAGE_CODE: `<Button
   onPress={function}
 
   buttonDisabled={true|false}
   buttonWidth={number|'perecentage'}
+  buttonHeight={number}
   buttonFlexDirection={'row'}
   buttonJustifyContent={'center'}
   buttonPaddingVertical={number}
@@ -337,20 +340,42 @@ If still unsure, you can see more details in the props section below.`,
   rightIconImage={require('URL')}
 />`,
 
-  S2_HEADER_TITLE: 'With Text',
-  S2_HEADER_DESCRIPTION: `This page store four buttons:\n
-    \u2B24    Default Button
+  S1_HEADER_TITLE: 'Button Component',
+  S1_HEADER_DESCRIPTION:
+    'This page store button component code, which is use for all the button stories.',
+
+  S2_HEADER_TITLE: 'Disabled',
+  S2_HEADER_DESCRIPTION: `This page store two buttons:\n
     \u2B24    Disabled Button
-    \u2B24    Outline Button
     \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
 `,
   S2_USAGE_IMPORT: 'Import the button component in the script',
-  S2_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S2_USAGE_CODE: `// Default Button
-<Button
+  S2_USAGE_FULL_CODE: 'Use this code to disabled button.',
+  S2_USAGE_CODE: `<Button
+  buttonDisabled={true} 
+  ...
+/>`,
+
+  S3_HEADER_TITLE: 'With Outline',
+  S3_HEADER_DESCRIPTION: `This page store one button:\n
+    \u2B24    Outline Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S3_USAGE_IMPORT: 'Import the button component in the script',
+  S3_USAGE_FULL_CODE: 'Use this code to add outline on button.',
+  S3_USAGE_CODE: `<Button
+  buttonBorderWidth={3}
+  buttonBorderColor={mColor.CoolGrey040}
+  ...
+/>`,
+
+  S4_HEADER_TITLE: 'With Text',
+  S4_HEADER_DESCRIPTION: `This page store two buttons:\n
+    \u2B24    Default Button
+    \u2B24    Outline Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S4_USAGE_IMPORT: 'Import the button component in the script',
+  S4_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S4_USAGE_CODE: `<Button
   onPress={function}
   buttonWidth={'100%'}
   buttonJustifyContent={'center'}
@@ -364,77 +389,20 @@ If still unsure, you can see more details in the props section below.`,
   fontSize={mFont.defaultTextSize}
   fontFamily={mFont.defaultType}
   fontWeight={'bold'}
-/>
 
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
 />`,
 
-  S3_HEADER_TITLE: 'With Icon',
-  S3_HEADER_DESCRIPTION: `This page store four buttons:\n
+  S5_HEADER_TITLE: 'With Icon',
+  S5_HEADER_DESCRIPTION: `This page store two buttons:\n
     \u2B24    Default Button
-    \u2B24    Disabled Button
     \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
-  S3_USAGE_IMPORT: 'Import the button component in the script',
-  S3_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S3_USAGE_CODE: `// Default Button
-<Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S5_USAGE_IMPORT: 'Import the button component in the script',
+  S5_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S5_USAGE_CODE: `<Button
   onPress={function}
   buttonWidth={'100%'}
   buttonJustifyContent={'center'}
@@ -445,356 +413,132 @@ If still unsure, you can see more details in the props section below.`,
   showLeftIconImage={true}
   iconWidth={20}
   iconHeight={20}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}    
-/>
-
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  leftIconImage={require('../../assets/resources/ic_union_white.png')}   
+  
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
 />`,
 
-  S4_HEADER_TITLE: 'Circle With Icon',
-  S4_HEADER_DESCRIPTION: `This page store four buttons with different sizes and pattern:\n
+  S6_HEADER_TITLE: 'Circle With Icon',
+  S6_HEADER_DESCRIPTION: `This page store four buttons with different sizes and pattern:\n
     \u2B24    Small Circle Button
     \u2B24    Big Circle Button
     \u2B24    Outline Small Circle Button
     \u2B24    Outline Big Circle Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
-  S4_USAGE_IMPORT: 'Import the button component in the script',
-  S4_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S4_USAGE_CODE: `// Small Circle Button
-<Button
-  onPress={function}
-  buttonWidth={65}
-  buttonHeight={65}
-  buttonPaddingVertical={15}
-  buttonPaddingHorizontal={15}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={150}
-  showLeftIconImage={true}
-  iconWidth={30}
-  iconHeight={30}
-  leftIconImage={require('../../assets/resources/ic_flash.png')}    
-/>
-
-// Big Circle Button
-<Button
-  onPress={function}
-  buttonWidth={65}
-  buttonHeight={65}
-  buttonPaddingVertical={15}
-  buttonPaddingHorizontal={15}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={150}
-  showLeftIconImage={true}
-  iconWidth={40}
-  iconHeight={40}
-  leftIconImage={require('../../assets/resources/ic_flash.png')}
-/>
-
-// Outline Small Circle Button
-<Button
-  onPress={function}
-  buttonWidth={65}
-  buttonHeight={65}
-  buttonPaddingVertical={15}
-  buttonPaddingHorizontal={15}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={150}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showLeftIconImage={true}
-  iconWidth={30}
-  iconHeight={30}
-  leftIconImage={require('../../assets/resources/ic_flash.png')}
-/>  
-
-// Outline Big Circle Button
-<Button
-  onPress={function}
-  buttonWidth={65}
-  buttonHeight={65}
-  buttonPaddingVertical={15}
-  buttonPaddingHorizontal={15}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={150}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showLeftIconImage={true}
-  iconWidth={40}
-  iconHeight={40}
-  leftIconImage={require('../../assets/resources/ic_flash.png')}
-/>`,
-
-  S5_HEADER_TITLE: 'With Left Icon, Text',
-  S5_HEADER_DESCRIPTION: `This page store four buttons:\n
-    \u2B24    Default Button
-    \u2B24    Disabled Button
-    \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
-  S5_USAGE_IMPORT: 'Import the button component in the script',
-  S5_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S5_USAGE_CODE: `// Default Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Default Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}    
-/>
-
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>`,
-
-  S6_HEADER_TITLE: 'With Right Icon, Text',
-  S6_HEADER_DESCRIPTION: `This page store four buttons:\n
-    \u2B24    Default Button
-    \u2B24    Disabled Button
-    \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
+\n\nUse addons knobs to test out if you are unsure.`,
   S6_USAGE_IMPORT: 'Import the button component in the script',
-  S6_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S6_USAGE_CODE: `// Default Button
+  S6_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S6_USAGE_CODE: `// Small Circle && Outline Button
 <Button
   onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
+  buttonWidth={65}
+  buttonHeight={65}
+  buttonPaddingVertical={15}
+  buttonPaddingHorizontal={15}
   buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Default Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginLeft={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}    
+  buttonBorderRadius={150}
+  showLeftIconImage={true}
+  iconWidth={30}
+  iconHeight={30}
+  leftIconImage={require('../../assets/resources/ic_flash.png')}   
+  
+  // Add these link to enable outline
+  buttonBorderWidth={3}
+  buttonBorderColor={mColor.CoolGrey040}
 />
 
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginLeft={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>
-
-// Outline Button
+// Big Circle && Outline Button
 <Button
   onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
+  buttonWidth={65}
+  buttonHeight={65}
+  buttonPaddingVertical={15}
+  buttonPaddingHorizontal={15}
   buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginLeft={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>  
+  buttonBorderRadius={150}
+  showLeftIconImage={true}
+  iconWidth={40}
+  iconHeight={40}
+  leftIconImage={require('../../assets/resources/ic_flash.png')}    
 
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginLeft={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
 />`,
 
-  S7_HEADER_TITLE: 'With Both Icon, Text',
-  S7_HEADER_DESCRIPTION: `This page store four buttons:\n
+  S7_HEADER_TITLE: 'With Left Icon, Text',
+  S7_HEADER_DESCRIPTION: `This page store two buttons:\n
     \u2B24    Default Button
-    \u2B24    Disabled Button
     \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
+\n\nUse addons knobs to test out if you are unsure.`,
   S7_USAGE_IMPORT: 'Import the button component in the script',
-  S7_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S7_USAGE_CODE: `// Default Button
-<Button
+  S7_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S7_USAGE_CODE: `<Button
+  onPress={function}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  showButtonText={true}
+  buttonText={'Default Button'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+  showLeftIconImage={true}
+  iconWidth={20}
+  iconHeight={20}
+  leftIconMarginRight={10}
+  leftIconImage={require('../../assets/resources/ic_union_white.png')}    
+  
+  // Add these link to enable outline
+  buttonBorderWidth={3}
+  buttonBorderColor={mColor.CoolGrey040}
+/>`,
+
+  S8_HEADER_TITLE: 'With Right Icon, Text',
+  S8_HEADER_DESCRIPTION: `This page store two buttons:\n
+    \u2B24    Default Button
+    \u2B24    Outline Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S8_USAGE_IMPORT: 'Import the button component in the script',
+  S8_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S8_USAGE_CODE: `<Button
+  onPress={function}
+  buttonWidth={'100%'}
+  buttonJustifyContent={'center'}
+  buttonPaddingVertical={18}
+  buttonPaddingHorizontal={20}
+  buttonBackgroundColor={mColor.blue} 
+  buttonBorderRadius={7}
+  showButtonText={true}
+  buttonText={'Default Button'}
+  fontcolor={mColor.white}
+  fontSize={mFont.defaultTextSize}
+  fontFamily={mFont.defaultType}
+  fontWeight={'bold'}
+  showRightIconImage={true}
+  iconWidth={20}
+  iconHeight={20}
+  rightIconMarginLeft={10}
+  rightIconImage={require('../../assets/resources/ic_union_white.png')}    
+  
+  // Add these link to enable outline
+  buttonBorderWidth={3}
+  buttonBorderColor={mColor.CoolGrey040}
+/>`,
+
+  S9_HEADER_TITLE: 'With Both Icon, Text',
+  S9_HEADER_DESCRIPTION: `This page store two buttons:\n
+    \u2B24    Default Button
+    \u2B24    Outline Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S9_USAGE_IMPORT: 'Import the button component in the script',
+  S9_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S9_USAGE_CODE: `<Button
   onPress={function}
   buttonWidth={'100%'}
   buttonJustifyContent={'center'}
@@ -816,100 +560,20 @@ If still unsure, you can see more details in the props section below.`,
   rightIconMarginLeft={10}
   leftIconImage={require('../../assets/resources/ic_union_white.png')}
   rightIconImage={require('../../assets/resources/ic_union_white.png')}    
-/>
 
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  rightIconMarginLeft={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')} 
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  rightIconMarginLeft={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')} 
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginRight={10}
-  rightIconMarginLeft={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
 />`,
 
-  S8_HEADER_TITLE: 'Card With Top Icon, Text',
-  S8_HEADER_DESCRIPTION: `This page store four buttons:\n
+  S10_HEADER_TITLE: 'Card With Top Icon, Text',
+  S10_HEADER_DESCRIPTION: `This page store two buttons:\n
     \u2B24    Default Button
-    \u2B24    Disabled Button
     \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
-  S8_USAGE_IMPORT: 'Import the button component in the script',
-  S8_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S8_USAGE_CODE: `// Default Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S10_USAGE_IMPORT: 'Import the button component in the script',
+  S10_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S10_USAGE_CODE: `// Default Button
 <Button
   onPress={function}
   buttonWidth={'100%'}
@@ -930,94 +594,20 @@ If still unsure, you can see more details in the props section below.`,
   iconHeight={20}
   leftIconMarginBottom={10}
   leftIconImage={require('../../assets/resources/ic_union_white.png')}    
-/>
 
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginBottom={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginBottom={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showLeftIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  leftIconMarginBottom={10}
-  leftIconImage={require('../../assets/resources/ic_union_white.png')}  
 />`,
 
-  S9_HEADER_TITLE: 'Card With Bottom Icon, Text',
-  S9_HEADER_DESCRIPTION: `This page store four buttons:\n
+  S11_HEADER_TITLE: 'Card With Bottom Icon, Text',
+  S11_HEADER_DESCRIPTION: `This page store two buttons:\n
     \u2B24    Default Button
-    \u2B24    Disabled Button
     \u2B24    Outline Button
-    \u2B24    Outline Disabled Button
-\n\nYou can test out addons knobs if you are unsure.
-\nIf still unsure, you can see more details in the props section below.
-`,
-  S9_USAGE_IMPORT: 'Import the button component in the script',
-  S9_USAGE_FULL_CODE: `Usage codes of the buttons that was display above, it can be also be reuse to set custom components with it.
-\n\nSee more details in the props section below.`,
-  S9_USAGE_CODE: `// Default Button
+\n\nUse addons knobs to test out if you are unsure.`,
+  S11_USAGE_IMPORT: 'Import the button component in the script',
+  S11_USAGE_FULL_CODE: 'Usage codes of the buttons that was display above.',
+  S11_USAGE_CODE: `// Default Button
 <Button
   onPress={function}
   buttonWidth={'100%'}
@@ -1038,78 +628,9 @@ If still unsure, you can see more details in the props section below.`,
   iconHeight={20}
   rightIconMarginTop={10}
   rightIconImage={require('../../assets/resources/ic_union_white.png')}    
-/>
 
-// Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  showButtonText={true}
-  buttonText={'Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginTop={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>
-
-// Outline Button
-<Button
-  onPress={function}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
+  // Add these link to enable outline
   buttonBorderWidth={3}
   buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginTop={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
-/>  
-
-// Outline Disabled Button
-<Button
-  buttonDisabled={true}
-  buttonWidth={'100%'}
-  buttonFlexDirection={'column'}
-  buttonJustifyContent={'center'}
-  buttonPaddingVertical={18}
-  buttonPaddingHorizontal={20}
-  buttonBackgroundColor={mColor.blue} 
-  buttonBorderRadius={7}
-  buttonBorderWidth={3}
-  buttonBorderColor={mColor.CoolGrey040}
-  showButtonText={true}
-  buttonText={'Outline Disabled Button'}
-  fontcolor={mColor.white}
-  fontSize={mFont.defaultTextSize}
-  fontFamily={mFont.defaultType}
-  fontWeight={'bold'}
-  showRightIconImage={true}
-  iconWidth={20}
-  iconHeight={20}
-  rightIconMarginTop={10}
-  rightIconImage={require('../../assets/resources/ic_union_white.png')}  
 />`,
 };

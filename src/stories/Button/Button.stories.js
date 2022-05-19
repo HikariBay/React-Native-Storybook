@@ -91,12 +91,12 @@ storiesOf('Button', module)
       </View>
     </View>
   ))
-  .add('Button Component', () => (
+  .add('Design Custom Button', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
-        headerTitle={ButtonStoriesContent.S1_HEADER_TITLE}
-        headerDescription={ButtonStoriesContent.S1_HEADER_DESCRIPTION}
+        headerTitle={ButtonStoriesContent.S0_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S0_HEADER_DESCRIPTION}
       />
 
       {/* /USAGE */}
@@ -228,10 +228,10 @@ storiesOf('Button', module)
 
         <UsageContent
           usageTitle={ButtonStoriesContent.USAGE_TITLE}
-          usageImportText={ButtonStoriesContent.S1_USAGE_IMPORT}
+          usageImportText={ButtonStoriesContent.S0_USAGE_IMPORT}
           importCode={ButtonStoriesContent.IMPORT_CODE}
-          usageFullCodeText={ButtonStoriesContent.S1_USAGE_FULL_CODE}
-          usageFullCode={ButtonStoriesContent.S1_USAGE_CODE}
+          usageFullCodeText={ButtonStoriesContent.S0_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S0_USAGE_CODE}
         />
       </View>
 
@@ -251,6 +251,15 @@ storiesOf('Button', module)
       </View>
 
       <View style={SBStyle.hairline} />
+    </View>
+  ))
+  .add('Button Component', () => (
+    <View>
+      {/* HEADER */}
+      <HeaderContent
+        headerTitle={ButtonStoriesContent.S1_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S1_HEADER_DESCRIPTION}
+      />
 
       {/* COMPONENT CODE AND STYLESHEET */}
 
@@ -262,12 +271,102 @@ storiesOf('Button', module)
       />
     </View>
   ))
-  .add('With Text', () => (
+  .add('Disabled', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
         headerTitle={ButtonStoriesContent.S2_HEADER_TITLE}
         headerDescription={ButtonStoriesContent.S2_HEADER_DESCRIPTION}
+      />
+
+      {/* /USAGE */}
+      <View>
+        <View style={SBStyle.displayUsageContainer}>
+          {/* Disabled Button */}
+          <Button
+            buttonDisabled
+            buttonBackgroundColor={mColor.blue}
+            showButtonText
+            fontcolor={mColor.white}
+            fontFamily={mFont.defaultType}
+            buttonText={'Disabled Button Text'}
+          />
+
+          <View style={SBStyle.spacing} />
+
+          {/* Outline Disabled Button */}
+          <Button
+            buttonDisabled
+            buttonBackgroundColor={mColor.blue}
+            buttonBorderWidth={3}
+            buttonBorderColor={mColor.CoolGrey040}
+            showButtonText
+            fontcolor={mColor.white}
+            fontFamily={mFont.defaultType}
+            buttonText={'Outline Disabled Button Text'}
+          />
+        </View>
+
+        <UsageContent
+          usageTitle={ButtonStoriesContent.USAGE_TITLE}
+          usageImportText={ButtonStoriesContent.S2_USAGE_IMPORT}
+          importCode={ButtonStoriesContent.IMPORT_CODE}
+          usageFullCodeText={ButtonStoriesContent.S2_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S2_USAGE_CODE}
+        />
+      </View>
+    </View>
+  ))
+  .add('With Outline', () => (
+    <View>
+      {/* HEADER */}
+      <HeaderContent
+        headerTitle={ButtonStoriesContent.S3_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S3_HEADER_DESCRIPTION}
+      />
+
+      {/* /USAGE */}
+      <View>
+        <View style={SBStyle.displayUsageContainer}>
+          {/* Outline Button */}
+          <Button
+            onPress={action('clicked-outline-button')}
+            buttonBackgroundColor={mColor.blue}
+            buttonBorderWidth={number(
+              'Button Border Width',
+              3,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderColor={select(
+              'Button Border Color',
+              mColor,
+              mColor.CoolGrey040,
+              KnobsGroup.BUTTON,
+            )}
+            showButtonText
+            fontcolor={mColor.white}
+            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+            buttonText={'Outline Button Text'}
+          />
+        </View>
+
+        <UsageContent
+          usageTitle={ButtonStoriesContent.USAGE_TITLE}
+          usageImportText={ButtonStoriesContent.S3_USAGE_IMPORT}
+          importCode={ButtonStoriesContent.IMPORT_CODE}
+          usageFullCodeText={ButtonStoriesContent.S3_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S3_USAGE_CODE}
+        />
+      </View>
+    </View>
+  ))
+  .add('With Text', () => (
+    <View>
+      {/* HEADER */}
+      <HeaderContent
+        headerTitle={ButtonStoriesContent.S4_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S4_HEADER_DESCRIPTION}
       />
 
       {/* /USAGE */}
@@ -333,69 +432,6 @@ storiesOf('Button', module)
               KnobsGroup.STRING,
             )}
           />
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-          />
-
           <View style={SBStyle.spacing} />
 
           {/* Outline Button */}
@@ -470,89 +506,14 @@ storiesOf('Button', module)
               KnobsGroup.STRING,
             )}
           />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-          />
         </View>
 
         <UsageContent
           usageTitle={ButtonStoriesContent.USAGE_TITLE}
-          usageImportText={ButtonStoriesContent.S2_USAGE_IMPORT}
+          usageImportText={ButtonStoriesContent.S4_USAGE_IMPORT}
           importCode={ButtonStoriesContent.IMPORT_CODE}
-          usageFullCodeText={ButtonStoriesContent.S2_USAGE_FULL_CODE}
-          usageFullCode={ButtonStoriesContent.S2_USAGE_CODE}
+          usageFullCodeText={ButtonStoriesContent.S4_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S4_USAGE_CODE}
         />
       </View>
 
@@ -570,23 +531,14 @@ storiesOf('Button', module)
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
     </View>
   ))
   .add('With Icon', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
-        headerTitle={ButtonStoriesContent.S3_HEADER_TITLE}
-        headerDescription={ButtonStoriesContent.S3_HEADER_DESCRIPTION}
+        headerTitle={ButtonStoriesContent.S5_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S5_HEADER_DESCRIPTION}
       />
 
       {/* /USAGE */}
@@ -595,53 +547,6 @@ storiesOf('Button', module)
           {/* Default Button */}
           <Button
             onPress={action('clicked-default-button')}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON)}
-            iconHeight={number('Icon Height Size', 20, {}, KnobsGroup.ICON)}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -742,73 +647,14 @@ storiesOf('Button', module)
             iconHeight={number('Icon Height Size', 20, {}, KnobsGroup.ICON)}
             leftIconImage={require('../../assets/resources/ic_union_white.png')}
           />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON)}
-            iconHeight={number('Icon Height Size', 20, {}, KnobsGroup.ICON)}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
         </View>
 
         <UsageContent
           usageTitle={ButtonStoriesContent.USAGE_TITLE}
-          usageImportText={ButtonStoriesContent.S3_USAGE_IMPORT}
+          usageImportText={ButtonStoriesContent.S5_USAGE_IMPORT}
           importCode={ButtonStoriesContent.IMPORT_CODE}
-          usageFullCodeText={ButtonStoriesContent.S3_USAGE_FULL_CODE}
-          usageFullCode={ButtonStoriesContent.S3_USAGE_CODE}
+          usageFullCodeText={ButtonStoriesContent.S5_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S5_USAGE_CODE}
         />
       </View>
 
@@ -826,23 +672,14 @@ storiesOf('Button', module)
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
     </View>
   ))
   .add('Circle With Icon', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
-        headerTitle={ButtonStoriesContent.S4_HEADER_TITLE}
-        headerDescription={ButtonStoriesContent.S4_HEADER_DESCRIPTION}
+        headerTitle={ButtonStoriesContent.S6_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S6_HEADER_DESCRIPTION}
       />
 
       {/* /USAGE */}
@@ -951,767 +788,6 @@ storiesOf('Button', module)
 
         <UsageContent
           usageTitle={ButtonStoriesContent.USAGE_TITLE}
-          usageImportText={ButtonStoriesContent.S4_USAGE_IMPORT}
-          importCode={ButtonStoriesContent.IMPORT_CODE}
-          usageFullCodeText={ButtonStoriesContent.S4_USAGE_FULL_CODE}
-          usageFullCode={ButtonStoriesContent.S4_USAGE_CODE}
-        />
-      </View>
-
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
-
-        <View>
-          <ButtonFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
-    </View>
-  ))
-  .add('With Left Icon, Text', () => (
-    <View>
-      {/* HEADER */}
-      <HeaderContent
-        headerTitle={ButtonStoriesContent.S5_HEADER_TITLE}
-        headerDescription={ButtonStoriesContent.S5_HEADER_DESCRIPTION}
-      />
-
-      {/* /USAGE */}
-      <View>
-        <View style={SBStyle.displayUsageContainer}>
-          {/* Default Button */}
-          <Button
-            onPress={action('clicked-default-button')}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Default Button Text',
-              'Default Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Button */}
-          <Button
-            onPress={action('clicked-outline-button')}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Button Text',
-              'Outline Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-        </View>
-
-        <UsageContent
-          usageTitle={ButtonStoriesContent.USAGE_TITLE}
-          usageImportText={ButtonStoriesContent.S5_USAGE_IMPORT}
-          importCode={ButtonStoriesContent.IMPORT_CODE}
-          usageFullCodeText={ButtonStoriesContent.S5_USAGE_FULL_CODE}
-          usageFullCode={ButtonStoriesContent.S5_USAGE_CODE}
-        />
-      </View>
-
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
-
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
-    </View>
-  ))
-  .add('With Right Icon, Text', () => (
-    <View>
-      {/* HEADER */}
-      <HeaderContent
-        headerTitle={ButtonStoriesContent.S6_HEADER_TITLE}
-        headerDescription={ButtonStoriesContent.S6_HEADER_DESCRIPTION}
-      />
-
-      {/* /USAGE */}
-      <View>
-        <View style={SBStyle.displayUsageContainer}>
-          {/* Default Button */}
-          <Button
-            onPress={action('clicked-default-button')}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Default Button Text',
-              'Default Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Button */}
-          <Button
-            onPress={action('clicked-outline-button')}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Button Text',
-              'Outline Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-        </View>
-
-        <UsageContent
-          usageTitle={ButtonStoriesContent.USAGE_TITLE}
           usageImportText={ButtonStoriesContent.S6_USAGE_IMPORT}
           importCode={ButtonStoriesContent.IMPORT_CODE}
           usageFullCodeText={ButtonStoriesContent.S6_USAGE_FULL_CODE}
@@ -1728,24 +804,14 @@ storiesOf('Button', module)
 
         <View>
           <ButtonFeature />
-          <TextFeature />
-          <RightIconFeature />
+          <LeftIconFeature />
         </View>
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
     </View>
   ))
-  .add('With Both Icon, Text', () => (
+  .add('With Left Icon, Text', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -1816,7 +882,6 @@ storiesOf('Button', module)
               KnobsGroup.TEXT,
             )}
             showLeftIconImage={true}
-            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -1830,100 +895,7 @@ storiesOf('Button', module)
               {},
               KnobsGroup.LEFT_ICON,
             )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
             leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
 
           <View style={SBStyle.spacing} />
@@ -2000,7 +972,6 @@ storiesOf('Button', module)
               KnobsGroup.TEXT,
             )}
             showLeftIconImage={true}
-            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -2014,112 +985,7 @@ storiesOf('Button', module)
               {},
               KnobsGroup.LEFT_ICON,
             )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
             leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
         </View>
 
@@ -2143,23 +1009,13 @@ storiesOf('Button', module)
           <ButtonFeature />
           <TextFeature />
           <LeftIconFeature />
-          <RightIconFeature />
         </View>
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
     </View>
   ))
-  .add('Card With Top Icon, Text', () => (
+  .add('With Right Icon, Text', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -2173,7 +1029,6 @@ storiesOf('Button', module)
           {/* Default Button */}
           <Button
             onPress={action('clicked-default-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -2230,7 +1085,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
-            showLeftIconImage={true}
+            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -2238,92 +1093,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
+            rightIconMarginLeft={number(
+              'Right Icon MarginLeft',
               10,
               {},
-              KnobsGroup.LEFT_ICON,
+              KnobsGroup.RIGHT_ICON,
             )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
 
           <View style={SBStyle.spacing} />
@@ -2331,7 +1107,6 @@ storiesOf('Button', module)
           {/* Outline Button */}
           <Button
             onPress={action('clicked-outline-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -2400,7 +1175,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
-            showLeftIconImage={true}
+            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -2408,104 +1183,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
+            rightIconMarginLeft={number(
+              'Right Icon MarginLeft',
               10,
               {},
-              KnobsGroup.LEFT_ICON,
+              KnobsGroup.RIGHT_ICON,
             )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showLeftIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
-              10,
-              {},
-              KnobsGroup.LEFT_ICON,
-            )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
         </View>
 
@@ -2528,23 +1212,14 @@ storiesOf('Button', module)
         <View>
           <ButtonFeature />
           <TextFeature />
-          <LeftIconFeature />
+          <RightIconFeature />
         </View>
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
-      />
     </View>
   ))
-  .add('Card With Bottom Icon, Text', () => (
+  .add('With Both Icon, Text', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -2558,7 +1233,6 @@ storiesOf('Button', module)
           {/* Default Button */}
           <Button
             onPress={action('clicked-default-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -2615,6 +1289,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
+            showLeftIconImage={true}
             showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
@@ -2623,91 +1298,19 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
+            leftIconMarginRight={number(
+              'Left Icon MarginRight',
+              10,
+              {},
+              KnobsGroup.LEFT_ICON,
+            )}
+            rightIconMarginLeft={number(
+              'Right Icon MarginLeft',
               10,
               {},
               KnobsGroup.RIGHT_ICON,
             )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Disabled Button Text',
-              'Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
+            leftIconImage={require('../../assets/resources/ic_union_white.png')}
             rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
 
@@ -2716,7 +1319,6 @@ storiesOf('Button', module)
           {/* Outline Button */}
           <Button
             onPress={action('clicked-outline-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -2785,6 +1387,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
+            showLeftIconImage={true}
             showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
@@ -2793,103 +1396,19 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
+            leftIconMarginRight={number(
+              'Left Icon MarginRight',
+              10,
+              {},
+              KnobsGroup.LEFT_ICON,
+            )}
+            rightIconMarginLeft={number(
+              'Right Icon MarginLeft',
               10,
               {},
               KnobsGroup.RIGHT_ICON,
             )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled={true}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Disabled Button Text',
-              'Outline Disabled Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
+            leftIconImage={require('../../assets/resources/ic_union_white.png')}
             rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
         </View>
@@ -2913,19 +1432,423 @@ storiesOf('Button', module)
         <View>
           <ButtonFeature />
           <TextFeature />
+          <LeftIconFeature />
           <RightIconFeature />
         </View>
       </View>
 
       <View style={SBStyle.hairline} />
-
-      {/* COMPONENT CODE AND STYLESHEET */}
-
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
+    </View>
+  ))
+  .add('Card With Top Icon, Text', () => (
+    <View>
+      {/* HEADER */}
+      <HeaderContent
+        headerTitle={ButtonStoriesContent.S10_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S10_HEADER_DESCRIPTION}
       />
+
+      {/* /USAGE */}
+      <View>
+        <View style={SBStyle.displayUsageContainer}>
+          {/* Default Button */}
+          <Button
+            onPress={action('clicked-default-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
+            buttonWidth={select(
+              'Button Width',
+              OptionButtonWidth,
+              OptionButtonWidth.Hundred_Percent_Width,
+              KnobsGroup.BUTTON,
+            )}
+            buttonJustifyContent={select(
+              'Button JustifyContent',
+              OptionJustifyContent,
+              `${OptionJustifyContent.center}`,
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingVertical={number(
+              'Button Padding Vertical',
+              18,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingHorizontal={number(
+              'Button Padding Horizontal',
+              20,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBackgroundColor={select(
+              'Button Color',
+              mColor,
+              mColor.blue,
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderRadius={number(
+              'Button Border Radius',
+              7,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            showButtonText={true}
+            buttonText={text(
+              'Default Button Text',
+              'Default Button Text',
+              KnobsGroup.STRING,
+            )}
+            fontcolor={select(
+              'Text Color',
+              mColor,
+              mColor.white,
+              KnobsGroup.TEXT,
+            )}
+            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
+            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+            fontWeight={select(
+              'Text Weight',
+              OptionFontWeight,
+              OptionFontWeight.Bold,
+              KnobsGroup.TEXT,
+            )}
+            showLeftIconImage={true}
+            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
+            iconHeight={number(
+              'Icon Height Size',
+              20,
+              {},
+              KnobsGroup.ICON_SIZE,
+            )}
+            leftIconMarginBottom={number(
+              'Left Icon MarginBottom',
+              10,
+              {},
+              KnobsGroup.LEFT_ICON,
+            )}
+            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+          />
+
+          <View style={SBStyle.spacing} />
+
+          {/* Outline Button */}
+          <Button
+            onPress={action('clicked-outline-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
+            buttonWidth={select(
+              'Button Width',
+              OptionButtonWidth,
+              OptionButtonWidth.Hundred_Percent_Width,
+              KnobsGroup.BUTTON,
+            )}
+            buttonJustifyContent={select(
+              'Button JustifyContent',
+              OptionJustifyContent,
+              `${OptionJustifyContent.center}`,
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingVertical={number(
+              'Button Padding Vertical',
+              18,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingHorizontal={number(
+              'Button Padding Horizontal',
+              20,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBackgroundColor={select(
+              'Button Color',
+              mColor,
+              mColor.blue,
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderRadius={number(
+              'Button Border Radius',
+              7,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderWidth={number(
+              'Button Border Width',
+              3,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderColor={select(
+              'Button Border Color',
+              mColor,
+              mColor.CoolGrey040,
+              KnobsGroup.BUTTON,
+            )}
+            showButtonText={true}
+            buttonText={text(
+              'Outline Button Text',
+              'Outline Button Text',
+              KnobsGroup.STRING,
+            )}
+            fontcolor={select(
+              'Text Color',
+              mColor,
+              mColor.white,
+              KnobsGroup.TEXT,
+            )}
+            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
+            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+            fontWeight={select(
+              'Text Weight',
+              OptionFontWeight,
+              OptionFontWeight.Bold,
+              KnobsGroup.TEXT,
+            )}
+            showLeftIconImage={true}
+            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
+            iconHeight={number(
+              'Icon Height Size',
+              20,
+              {},
+              KnobsGroup.ICON_SIZE,
+            )}
+            leftIconMarginBottom={number(
+              'Left Icon MarginBottom',
+              10,
+              {},
+              KnobsGroup.LEFT_ICON,
+            )}
+            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+          />
+        </View>
+
+        <UsageContent
+          usageTitle={ButtonStoriesContent.USAGE_TITLE}
+          usageImportText={ButtonStoriesContent.S10_USAGE_IMPORT}
+          importCode={ButtonStoriesContent.IMPORT_CODE}
+          usageFullCodeText={ButtonStoriesContent.S10_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S10_USAGE_CODE}
+        />
+      </View>
+
+      {/* PROPS */}
+      <View>
+        <PropsContent
+          propsTitle={ButtonStoriesContent.PROPS_TITLE}
+          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
+        />
+
+        <View>
+          <ButtonFeature />
+          <TextFeature />
+          <LeftIconFeature />
+        </View>
+      </View>
+
+      <View style={SBStyle.hairline} />
+    </View>
+  ))
+  .add('Card With Bottom Icon, Text', () => (
+    <View>
+      {/* HEADER */}
+      <HeaderContent
+        headerTitle={ButtonStoriesContent.S11_HEADER_TITLE}
+        headerDescription={ButtonStoriesContent.S11_HEADER_DESCRIPTION}
+      />
+
+      {/* /USAGE */}
+      <View>
+        <View style={SBStyle.displayUsageContainer}>
+          {/* Default Button */}
+          <Button
+            onPress={action('clicked-default-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
+            buttonWidth={select(
+              'Button Width',
+              OptionButtonWidth,
+              OptionButtonWidth.Hundred_Percent_Width,
+              KnobsGroup.BUTTON,
+            )}
+            buttonJustifyContent={select(
+              'Button JustifyContent',
+              OptionJustifyContent,
+              `${OptionJustifyContent.center}`,
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingVertical={number(
+              'Button Padding Vertical',
+              18,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingHorizontal={number(
+              'Button Padding Horizontal',
+              20,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBackgroundColor={select(
+              'Button Color',
+              mColor,
+              mColor.blue,
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderRadius={number(
+              'Button Border Radius',
+              7,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            showButtonText={true}
+            buttonText={text(
+              'Default Button Text',
+              'Default Button Text',
+              KnobsGroup.STRING,
+            )}
+            fontcolor={select(
+              'Text Color',
+              mColor,
+              mColor.white,
+              KnobsGroup.TEXT,
+            )}
+            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
+            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+            fontWeight={select(
+              'Text Weight',
+              OptionFontWeight,
+              OptionFontWeight.Bold,
+              KnobsGroup.TEXT,
+            )}
+            showRightIconImage={true}
+            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
+            iconHeight={number(
+              'Icon Height Size',
+              20,
+              {},
+              KnobsGroup.ICON_SIZE,
+            )}
+            rightIconMarginTop={number(
+              'Right Icon MarginTop',
+              10,
+              {},
+              KnobsGroup.RIGHT_ICON,
+            )}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
+          />
+
+          <View style={SBStyle.spacing} />
+
+          {/* Outline Button */}
+          <Button
+            onPress={action('clicked-outline-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
+            buttonWidth={select(
+              'Button Width',
+              OptionButtonWidth,
+              OptionButtonWidth.Hundred_Percent_Width,
+              KnobsGroup.BUTTON,
+            )}
+            buttonJustifyContent={select(
+              'Button JustifyContent',
+              OptionJustifyContent,
+              `${OptionJustifyContent.center}`,
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingVertical={number(
+              'Button Padding Vertical',
+              18,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonPaddingHorizontal={number(
+              'Button Padding Horizontal',
+              20,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBackgroundColor={select(
+              'Button Color',
+              mColor,
+              mColor.blue,
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderRadius={number(
+              'Button Border Radius',
+              7,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderWidth={number(
+              'Button Border Width',
+              3,
+              {},
+              KnobsGroup.BUTTON,
+            )}
+            buttonBorderColor={select(
+              'Button Border Color',
+              mColor,
+              mColor.CoolGrey040,
+              KnobsGroup.BUTTON,
+            )}
+            showButtonText={true}
+            buttonText={text(
+              'Outline Button Text',
+              'Outline Button Text',
+              KnobsGroup.STRING,
+            )}
+            fontcolor={select(
+              'Text Color',
+              mColor,
+              mColor.white,
+              KnobsGroup.TEXT,
+            )}
+            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
+            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+            fontWeight={select(
+              'Text Weight',
+              OptionFontWeight,
+              OptionFontWeight.Bold,
+              KnobsGroup.TEXT,
+            )}
+            showRightIconImage={true}
+            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
+            iconHeight={number(
+              'Icon Height Size',
+              20,
+              {},
+              KnobsGroup.ICON_SIZE,
+            )}
+            rightIconMarginTop={number(
+              'Right Icon MarginTop',
+              10,
+              {},
+              KnobsGroup.RIGHT_ICON,
+            )}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
+          />
+        </View>
+
+        <UsageContent
+          usageTitle={ButtonStoriesContent.USAGE_TITLE}
+          usageImportText={ButtonStoriesContent.S11_USAGE_IMPORT}
+          importCode={ButtonStoriesContent.IMPORT_CODE}
+          usageFullCodeText={ButtonStoriesContent.S11_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S11_USAGE_CODE}
+        />
+      </View>
+
+      {/* PROPS */}
+      <View>
+        <PropsContent
+          propsTitle={ButtonStoriesContent.PROPS_TITLE}
+          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
+        />
+
+        <View>
+          <ButtonFeature />
+          <TextFeature />
+          <RightIconFeature />
+        </View>
+      </View>
+
+      <View style={SBStyle.hairline} />
     </View>
   ));

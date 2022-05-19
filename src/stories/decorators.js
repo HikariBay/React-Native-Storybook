@@ -65,12 +65,6 @@ export const ComponentAndStyleSheetContent = ({
     <Text style={SBStyle.componentHeaderStyle}>{componentTitle}</Text>
 
     <SyntaxDarculaComponent code={componentCode} />
-
-    <Text style={SBStyle.componentHeaderStyle}>{styleSheetTitle}</Text>
-
-    <SyntaxDarculaComponent code={styleSheetCode} />
-
-    <View style={SBStyle.spacing} />
   </View>
 );
 
