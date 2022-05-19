@@ -88,6 +88,15 @@ storiesOf('Summary', module)
             <Text style={SBStyle.changelogBulletDescription}>
               {'  \u2B24' + `     ${ChangeLogDateContent.V_02_NEW_FEATURE_1}`}
             </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_NEW_FEATURE_2}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_NEW_FEATURE_3}`}
+            </Text>
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_NEW_FEATURE_4}`}
+            </Text>
           </View>
 
           {/* Documentation */}
@@ -98,6 +107,10 @@ storiesOf('Summary', module)
 
             <Text style={SBStyle.changelogBulletDescription}>
               {'  \u2B24' + `     ${ChangeLogDateContent.V_02_DOCUMENTATION_1}`}
+            </Text>
+
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_DOCUMENTATION_2}`}
             </Text>
           </View>
         </View>

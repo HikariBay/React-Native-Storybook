@@ -68,9 +68,12 @@ export const ChangeLogContentTitle = {
 
 export const ChangeLogDateContent = {
   V_02: `V 0.2 (2022-19-05)`,
-  V_02_NEW_FEATURE_1: `Add Buttons Design Stories`,
-
+  V_02_NEW_FEATURE_1: `Added Multiple Buttons Stories`,
+  V_02_NEW_FEATURE_2: `Added Font Size Stories`,
+  V_02_NEW_FEATURE_3: `Added Font Family Stories`,
+  V_02_NEW_FEATURE_4: `Added Custom Style Stories`,
   V_02_DOCUMENTATION_1: `Update Documentation in Button/button component`,
+  V_02_DOCUMENTATION_2: `Update Documentation in Summary component`,
 
   V_01: `V 0.1 (2022-15-05)`,
   V_01_NEW_FEATURE_1: `Created new storybook`,
