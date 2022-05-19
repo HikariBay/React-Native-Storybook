@@ -6,6 +6,7 @@ const Button = ({
 
   buttonDisabled = false,
   buttonWidth = '100%',
+  buttonHeight,
   buttonFlexDirection = 'row',
   buttonJustifyContent = 'center',
   buttonPaddingVertical = 18,
@@ -41,6 +42,7 @@ const Button = ({
         styles.container,
         {
           width: buttonWidth,
+          height: buttonHeight,
           flexDirection: buttonFlexDirection,
           justifyContent: buttonJustifyContent,
           paddingVertical: buttonPaddingVertical,
@@ -105,6 +107,16 @@ export default Button;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
 
   buttonText: {

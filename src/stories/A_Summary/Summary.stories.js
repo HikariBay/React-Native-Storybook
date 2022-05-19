@@ -3,23 +3,18 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
-import {action} from '@storybook/addon-actions';
-import {number, text, select, color, boolean} from '@storybook/addon-knobs';
 
 // Styles
 import {BufferView, SBStyle} from '../decorators';
-import {mSize, mColor, mFont, mOS, mStyle} from '../../helpers/appStyle';
+import {mColor} from '../../helpers/appStyle';
 
 // Strings
-
 import {
   Welcome,
   Colors,
   ChangeLogContentTitle,
   ChangeLogDateContent,
 } from './contentStrings';
-
-import {Code} from './codeStrings';
 
 // SB Components
 import SyntaxOkaidiaComponent from '../../components/SB/syntaxOkaidiaComponent';
@@ -29,7 +24,7 @@ import SquareColor from '../../components/SB/squareColor';
 
 storiesOf('Summary', module)
   .addDecorator(BufferView)
-  .add('welcome', () => (
+  .add('Welcome', () => (
     <View>
       <Text style={SBStyle.headerTitle}>{Welcome.HEADER_TITLE}</Text>
 
@@ -59,7 +54,7 @@ storiesOf('Summary', module)
 
       <View style={SBStyle.spacing} />
 
-      <SyntaxOkaidiaComponent code={Code.HOW_TO_INSTALL} />
+      <SyntaxOkaidiaComponent code={Welcome.HOW_TO_INSTALL} />
 
       <Text style={SBStyle.headerDescription}>
         {Welcome.HEADER_DESCRIPTION_5}
@@ -67,14 +62,44 @@ storiesOf('Summary', module)
 
       <View style={SBStyle.spacing} />
 
-      <SyntaxOkaidiaComponent code={Code.START_ANDROID} />
+      <SyntaxOkaidiaComponent code={Welcome.START_ANDROID} />
     </View>
   ))
-  .add('changelogs', () => (
+  .add('Changelogs', () => (
     <View>
       <Text style={SBStyle.headerTitle}>
         {ChangeLogContentTitle.CHANGE_LOGS}
       </Text>
+
+      <View>
+        <Text style={SBStyle.headerBoldSubText}>
+          {ChangeLogDateContent.V_02}
+        </Text>
+
+        <View style={SBStyle.changelogSubtextContainerStyle}>
+          {/* New Features */}
+          <View style={SBStyle.LowViewSpacing}>
+            <Text style={SBStyle.changelogSubtextStyle}>
+              {ChangeLogContentTitle.NEW_FEATURES}
+            </Text>
+
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_NEW_FEATURE_1}`}
+            </Text>
+          </View>
+
+          {/* Documentation */}
+          <View style={SBStyle.LowViewSpacing}>
+            <Text style={SBStyle.changelogSubtextStyle}>
+              {ChangeLogContentTitle.DOCUMENTATION}
+            </Text>
+
+            <Text style={SBStyle.changelogBulletDescription}>
+              {'  \u2B24' + `     ${ChangeLogDateContent.V_02_DOCUMENTATION_1}`}
+            </Text>
+          </View>
+        </View>
+      </View>
 
       <View>
         <Text style={SBStyle.headerBoldSubText}>
@@ -125,7 +150,7 @@ storiesOf('Summary', module)
       </View>
     </View>
   ))
-  .add('colors', () => (
+  .add('Colors', () => (
     <View>
       <Text style={SBStyle.headerTitle}>{Colors.HEADER_TITLE}</Text>
 
@@ -133,7 +158,7 @@ storiesOf('Summary', module)
         {Colors.HEADER_DESCRIPTION_1}
       </Text>
 
-      <SyntaxOkaidiaComponent code={Code.MCOLOR_CODE} />
+      <SyntaxOkaidiaComponent code={Colors.MCOLOR_CODE} />
 
       <View style={SBStyle.hairline} />
 

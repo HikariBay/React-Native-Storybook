@@ -12,11 +12,11 @@ export const OptionFontWeight = {
 
 export const OptionButtonWidth = {
   Hundred_Percent_Width: '100%',
+  Seventy_Percent_Width: '75%',
   Fifty_Percent_Width: '50%',
   Thirty_Five_Percent_Width: '35%',
   Twenty_Five_Percent_Width: '25%',
   Zero_Percent_Width: '0%',
-  Circle_Width: '15%',
 };
 
 export const OptionFlexDirection = {

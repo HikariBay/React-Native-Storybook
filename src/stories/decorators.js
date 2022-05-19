@@ -152,6 +152,13 @@ export const SBStyle = StyleSheet.create({
     alignItems: 'center',
   },
 
+  displayUsageHorContainer: {
+    paddingVertical: 40,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   componentHeaderStyle: {
     ...mStyle.subtitle,
     textAlign: 'left',
@@ -161,6 +168,10 @@ export const SBStyle = StyleSheet.create({
 
   spacing: {
     paddingVertical: 10,
+  },
+
+  horspacing: {
+    paddingHorizontal: 10,
   },
 
   wholeViewSpacing: {

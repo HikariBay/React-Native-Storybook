@@ -8,11 +8,25 @@ export const Welcome = {
   HEADER_DESCRIPTION_3: `Setup`,
   HEADER_DESCRIPTION_4: `This project is build by using yarn, so install yarn if you have not yet.`,
   HEADER_DESCRIPTION_5: `Then use this code, remember to set an wire connected to your phone and set up android studio if you have not done it yet.`,
+
+  HOW_TO_INSTALL: `yarn install`,
+  START_ANDROID: `yarn android`,
 };
 
 export const Colors = {
   HEADER_TITLE: `Colors`,
   HEADER_DESCRIPTION_1: `Colors used in the app, displayed here.`,
+
+  MCOLOR_CODE: `// import the files from /helpers/appStyle    
+  mColor
+  
+  // example for font color
+  color: mColor.primary
+  color: mColor.red
+  
+  // example for background color
+  backgroundColor: mColor.primary
+  backgroundColor: mColor.red`,
 };
 
 export const ChangeLogContentTitle = {
@@ -24,6 +38,11 @@ export const ChangeLogContentTitle = {
 };
 
 export const ChangeLogDateContent = {
+  V_02: `V 0.2 (2022-19-05)`,
+  V_02_NEW_FEATURE_1: `Add Buttons Design Stories`,
+
+  V_02_DOCUMENTATION_1: `Update Documentation in Button/button component`,
+
   V_01: `V 0.1 (2022-15-05)`,
   V_01_NEW_FEATURE_1: `Created new storybook`,
   V_01_NEW_FEATURE_2: `Enable Addons Knobs`,

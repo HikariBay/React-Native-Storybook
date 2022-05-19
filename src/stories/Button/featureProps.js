@@ -48,6 +48,15 @@ export const ButtonFeature = () => {
           description={FeaturePropsContent.TEXT_BUTTON_WIDTH}
         />
 
+        {/* buttonHeight */}
+        <CollipseTable
+          code={FeaturePropsContent.BUTTON_HEIGHT}
+          typeValue={TableContent.NUMBER}
+          defaultValue={TableContent.NONE}
+          requiredValue={TableContent.OPTIONAL}
+          description={FeaturePropsContent.TEXT_BUTTON_HEIGHT}
+        />
+
         {/* buttonFlexDirection */}
         <CollipseTable
           code={FeaturePropsContent.BUTTON_FLEX_DIRECTION}
