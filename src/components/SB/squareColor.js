@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {mColor} from '../../helpers/appStyle';
+import {mColor, mStyle} from '../../helpers/appStyle';
 
 const SquareColor = ({text, squareColor}) => {
   return (
@@ -20,8 +20,9 @@ const Style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginHorizontal: 25,
-    marginVertical: 25,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    flex: 1,
   },
 
   columnContainerText: {
@@ -31,15 +32,16 @@ const Style = StyleSheet.create({
   },
 
   centerText: {
+    ...mStyle.message,
     textAlign: 'center',
-    fontSize: 10,
+    fontSize: 8.5,
   },
 
   squareContainer: {
     backgroundColor: mColor.primary,
-    height: 80,
-    width: 80,
-    borderRadius: 5,
+    width: 75,
+    height: 75,
+    borderRadius: 7,
     justifyContent: 'center',
     alignSelf: 'center',
   },

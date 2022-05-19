@@ -17,16 +17,45 @@ export const Colors = {
   HEADER_TITLE: `Colors`,
   HEADER_DESCRIPTION_1: `Colors used in the app, displayed here.`,
 
-  MCOLOR_CODE: `// import the files from /helpers/appStyle    
-  mColor
-  
-  // example for font color
-  color: mColor.primary
-  color: mColor.red
-  
-  // example for background color
-  backgroundColor: mColor.primary
-  backgroundColor: mColor.red`,
+  MCOLOR_CODE: `// Import the files from /helpers/appStyle    
+mColor
+
+// How to use
+color: mColor.primary
+backgroundColor: mColor.red`,
+};
+
+export const FontSize = {
+  HEADER_TITLE: `Font Size`,
+  HEADER_DESCRIPTION_1: `Text Size used in the app, displayed here.`,
+
+  MFONT_CODE: `// Import the files from /helpers/appStyle    
+mFont
+
+// How to use
+fontSize: mFont.headerTextSize`,
+};
+
+export const FontFamily = {
+  HEADER_TITLE: `FontFamily`,
+  HEADER_DESCRIPTION_1: `FontFamily used in the app, displayed here.`,
+
+  MFONT_CODE: `// Import the files from /helpers/appStyle    
+mFont
+
+// How to use
+fontFamily: mFont.defaultType`,
+};
+
+export const CustomStyle = {
+  HEADER_TITLE: `Custom Style`,
+  HEADER_DESCRIPTION_1: `Custom Font used in the app, displayed here.`,
+
+  MSTYLE_CODE: `// Import the files from /helpers/appStyle    
+mStyle
+
+// How to use
+...mStyle.title`,
 };
 
 export const ChangeLogContentTitle = {
