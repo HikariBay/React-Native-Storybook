@@ -7,17 +7,17 @@ import {
   CollapseBody,
 } from 'accordion-collapse-react-native';
 
-const SeparateCollipse = ({headerTitle, children}) => {
+const SeparateSubCollipse = ({headerTitle, children}) => {
   return (
-    <View style={{paddingBottom: 40}}>
+    <View style={{paddingBottom: 40, paddingHorizontal: 5}}>
       <Collapse>
         <CollapseHeader>
           <View
             style={{
               flexDirection: 'row',
-              backgroundColor: '#C6D4FF',
+              backgroundColor: '#f7c6ff',
               borderRadius: 7,
-              borderColor: '#7A82AB',
+              borderColor: '#a87aab',
               borderWidth: 4,
               alignItems: 'center',
               paddingHorizontal: 20,
@@ -41,4 +41,4 @@ const SeparateCollipse = ({headerTitle, children}) => {
   );
 };
 
-export default SeparateCollipse;
+export default SeparateSubCollipse;

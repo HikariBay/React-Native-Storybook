@@ -33,12 +33,21 @@ const Button = ({
   rightIconMarginLeft,
   rightIconMarginTop,
   rightIconImage,
+
+  shadow = true,
 }) => {
+  const ButtonContainer = [styles.ButtonContainer];
+
+  if (shadow) {
+    ButtonContainer.push(styles.shadow);
+  }
+
   return (
     <TouchableOpacity
       disabled={buttonDisabled}
       onPress={onPress}
       style={[
+        ButtonContainer,
         styles.container,
         {
           width: buttonWidth,
@@ -107,7 +116,9 @@ export default Button;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+  },
 
+  shadow: {
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

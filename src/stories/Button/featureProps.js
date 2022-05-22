@@ -9,13 +9,13 @@ import {TableContent, FeaturePropsContent} from './contentStrings';
 
 // SB Components
 import CollipseTable from '../../components/SB/collipseTable';
-import SeparateCollipse from '../../components/SB/separateCollipse';
+import SeparateSubCollipse from '../../components/SB/separateSubCollipse';
 
 export const ButtonFeature = () => {
   return (
     <View>
       {/* Button Feature */}
-      <SeparateCollipse
+      <SeparateSubCollipse
         headerTitle={
           <Text style={SBStyle.buttonHeaderDescription}>
             {FeaturePropsContent.FEATURE_BUTTON}
@@ -128,7 +128,16 @@ export const ButtonFeature = () => {
           requiredValue={TableContent.ONLY_REQUIRED}
           description={FeaturePropsContent.TEXT_BUTTON_BORDER_COLOR}
         />
-      </SeparateCollipse>
+
+        {/* shadow */}
+        <CollipseTable
+          code={FeaturePropsContent.SHADOW}
+          typeValue={TableContent.BOOLEAN}
+          defaultValue={TableContent.TRUE}
+          requiredValue={TableContent.OPTIONAL}
+          description={FeaturePropsContent.TEXT_SHADOW}
+        />
+      </SeparateSubCollipse>
     </View>
   );
 };
@@ -137,7 +146,7 @@ export const TextFeature = () => {
   return (
     <View>
       {/* Text Feature */}
-      <SeparateCollipse
+      <SeparateSubCollipse
         headerTitle={
           <Text style={SBStyle.buttonHeaderDescription}>
             {FeaturePropsContent.FEATURE_TEXT}
@@ -196,7 +205,7 @@ export const TextFeature = () => {
           requiredValue={TableContent.ONLY_REQUIRED}
           description={FeaturePropsContent.TEXT_FONT_WEIGHT}
         />
-      </SeparateCollipse>
+      </SeparateSubCollipse>
     </View>
   );
 };
@@ -205,7 +214,7 @@ export const LeftIconFeature = () => {
   return (
     <View>
       {/* Left Icon Feature */}
-      <SeparateCollipse
+      <SeparateSubCollipse
         headerTitle={
           <Text style={SBStyle.buttonHeaderDescription}>
             {FeaturePropsContent.FEATURE_LEFT_ICON_FEATURE}
@@ -264,7 +273,7 @@ export const LeftIconFeature = () => {
           requiredValue={TableContent.ONLY_REQUIRED}
           description={FeaturePropsContent.TEXT_LEFT_ICON_IMAGE}
         />
-      </SeparateCollipse>
+      </SeparateSubCollipse>
     </View>
   );
 };
@@ -273,7 +282,7 @@ export const RightIconFeature = () => {
   return (
     <View>
       {/* Right Icon Feature */}
-      <SeparateCollipse
+      <SeparateSubCollipse
         headerTitle={
           <Text style={SBStyle.buttonHeaderDescription}>
             {FeaturePropsContent.FEATURE_RIGHT_ICON_FEATURE}
@@ -332,7 +341,7 @@ export const RightIconFeature = () => {
           requiredValue={TableContent.ONLY_REQUIRED}
           description={FeaturePropsContent.TEXT_RIGHT_ICON_IMAGE}
         />
-      </SeparateCollipse>
+      </SeparateSubCollipse>
     </View>
   );
 };

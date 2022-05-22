@@ -19,7 +19,7 @@ import {
   HeaderContent,
   UsageContent,
   PropsContent,
-  ComponentAndStyleSheetContent,
+  ComponentContent,
   SBStyle,
 } from '../decorators';
 import {mSize, mColor, mFont, mOS, mStyle} from '../../helpers/appStyle';
@@ -46,51 +46,15 @@ import {
   RightIconFeature,
 } from './featureProps';
 
+// SB
+import SeparateCollipse from '../../components/SB/separateCollipse';
+
 // Components
 import Button from '../../components/button/button';
+import ButtonGroup from '../../components/button/buttonGroup';
 
 storiesOf('Button', module)
   .addDecorator(BufferView)
-  .add('What Is Button', () => (
-    <View>
-      {/* WHAT IS BUTTON? */}
-      <View>
-        <Text style={SBStyle.headerTitle}>
-          {QuestionContent.WHAT_IS_BUTTON}
-        </Text>
-
-        <Text style={SBStyle.headerDescription}>
-          {QuestionContent.BUTTON_DESCRIPTION}
-        </Text>
-
-        <View style={SBStyle.spacing} />
-
-        <Text style={SBStyle.headerDescription}>
-          {QuestionContent.WHERE_TO_USE_BUTTON}
-        </Text>
-
-        <View style={SBStyle.spacing} />
-
-        <Text style={SBStyle.bulletDescription}>
-          {'      \u2B24' + `     ${QuestionContent.BULLET_MODAL_WINDOW}`}
-        </Text>
-
-        <Text style={SBStyle.bulletDescription}>
-          {'      \u2B24' + `     ${QuestionContent.BULLET_FORM}`}
-        </Text>
-
-        <Text style={SBStyle.bulletDescription}>
-          {'      \u2B24' + `     ${QuestionContent.BULLET_CARDS}`}
-        </Text>
-
-        <Text style={SBStyle.bulletDescription}>
-          {'      \u2B24' + `     ${QuestionContent.BULLET_TOOLBARS}`}
-        </Text>
-
-        <View style={SBStyle.spacing} />
-      </View>
-    </View>
-  ))
   .add('Design Custom Button', () => (
     <View>
       {/* HEADER */}
@@ -143,7 +107,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -161,7 +125,7 @@ storiesOf('Button', module)
             buttonBorderColor={select(
               'Button Border Color',
               mColor,
-              mColor.white,
+              mColor.CoolGrey040,
               KnobsGroup.BUTTON,
             )}
             showButtonText={boolean('Show Button Text', true, KnobsGroup.TEXT)}
@@ -169,7 +133,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -235,25 +199,22 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <LeftIconFeature />
-          <RightIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
-  .add('Button Component', () => (
+  .add('Disabled', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -261,17 +222,45 @@ storiesOf('Button', module)
         headerDescription={ButtonStoriesContent.S1_HEADER_DESCRIPTION}
       />
 
-      {/* COMPONENT CODE AND STYLESHEET */}
+      {/* /USAGE */}
+      <View>
+        <View style={SBStyle.displayUsageContainer}>
+          {/* Disabled Button */}
+          <Button
+            buttonDisabled
+            buttonBackgroundColor={mColor.orange}
+            showButtonText
+            fontcolor={mColor.coolGrey100}
+            fontFamily={mFont.defaultType}
+            buttonText={'Disabled Button'}
+          />
+        </View>
 
-      <ComponentAndStyleSheetContent
-        componentTitle={ButtonStoriesContent.COMPONENTCODE}
-        componentCode={ButtonStoriesContent.COMPONENT_CODE}
-        styleSheetTitle={ButtonStoriesContent.COMPONENTSTYLESHEET}
-        styleSheetCode={ButtonStoriesContent.COMPONENT_STYLESHEET}
+        <UsageContent
+          usageTitle={ButtonStoriesContent.USAGE_TITLE}
+          usageImportText={ButtonStoriesContent.S1_USAGE_IMPORT}
+          importCode={ButtonStoriesContent.IMPORT_CODE}
+          usageFullCodeText={ButtonStoriesContent.S1_USAGE_FULL_CODE}
+          usageFullCode={ButtonStoriesContent.S1_USAGE_CODE}
+        />
+      </View>
+
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
+
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
       />
     </View>
   ))
-  .add('Disabled', () => (
+  .add('With No Shadow', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -282,28 +271,15 @@ storiesOf('Button', module)
       {/* /USAGE */}
       <View>
         <View style={SBStyle.displayUsageContainer}>
-          {/* Disabled Button */}
+          {/* Shadow Button */}
           <Button
-            buttonDisabled
-            buttonBackgroundColor={mColor.blue}
+            onPress={action('clicked-no-shadow-button')}
+            shadow={false}
+            buttonBackgroundColor={mColor.orange}
             showButtonText
-            fontcolor={mColor.white}
+            fontcolor={mColor.coolGrey100}
             fontFamily={mFont.defaultType}
-            buttonText={'Disabled Button Text'}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Disabled Button */}
-          <Button
-            buttonDisabled
-            buttonBackgroundColor={mColor.blue}
-            buttonBorderWidth={3}
-            buttonBorderColor={mColor.CoolGrey040}
-            showButtonText
-            fontcolor={mColor.white}
-            fontFamily={mFont.defaultType}
-            buttonText={'Outline Disabled Button Text'}
+            buttonText={'Shadow Button'}
           />
         </View>
 
@@ -315,6 +291,20 @@ storiesOf('Button', module)
           usageFullCode={ButtonStoriesContent.S2_USAGE_CODE}
         />
       </View>
+
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
+
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('With Outline', () => (
@@ -331,7 +321,7 @@ storiesOf('Button', module)
           {/* Outline Button */}
           <Button
             onPress={action('clicked-outline-button')}
-            buttonBackgroundColor={mColor.blue}
+            buttonBackgroundColor={mColor.orange}
             buttonBorderWidth={number(
               'Button Border Width',
               3,
@@ -344,10 +334,6 @@ storiesOf('Button', module)
               mColor.CoolGrey040,
               KnobsGroup.BUTTON,
             )}
-            showButtonText
-            fontcolor={mColor.white}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            buttonText={'Outline Button Text'}
           />
         </View>
 
@@ -359,6 +345,20 @@ storiesOf('Button', module)
           usageFullCode={ButtonStoriesContent.S3_USAGE_CODE}
         />
       </View>
+
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
+
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('With Text', () => (
@@ -402,7 +402,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -415,7 +415,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -464,7 +464,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -489,7 +489,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -517,20 +517,19 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('With Icon', () => (
@@ -574,7 +573,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -621,7 +620,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -658,20 +657,19 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('Circle With Icon', () => (
@@ -695,7 +693,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={150}
@@ -717,7 +715,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={150}
@@ -739,7 +737,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={150}
@@ -768,7 +766,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={150}
@@ -795,20 +793,19 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('With Left Icon, Text', () => (
@@ -852,7 +849,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -870,7 +867,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -930,7 +927,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -960,7 +957,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -998,21 +995,19 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
   .add('With Right Icon, Text', () => (
@@ -1056,7 +1051,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1074,7 +1069,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1134,7 +1129,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1164,7 +1159,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1202,24 +1197,22 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <RightIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
-  .add('With Both Icon, Text', () => (
+  .add('Card With Top Icon, Text', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -1233,6 +1226,7 @@ storiesOf('Button', module)
           {/* Default Button */}
           <Button
             onPress={action('clicked-default-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -1260,7 +1254,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1278,7 +1272,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1290,7 +1284,6 @@ storiesOf('Button', module)
               KnobsGroup.TEXT,
             )}
             showLeftIconImage={true}
-            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -1298,20 +1291,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
+            leftIconMarginBottom={number(
+              'Left Icon MarginBottom',
               10,
               {},
               KnobsGroup.LEFT_ICON,
             )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
             leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
 
           <View style={SBStyle.spacing} />
@@ -1319,6 +1305,7 @@ storiesOf('Button', module)
           {/* Outline Button */}
           <Button
             onPress={action('clicked-outline-button')}
+            buttonFlexDirection={OptionFlexDirection.column}
             buttonWidth={select(
               'Button Width',
               OptionButtonWidth,
@@ -1346,7 +1333,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1376,7 +1363,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1388,7 +1375,6 @@ storiesOf('Button', module)
               KnobsGroup.TEXT,
             )}
             showLeftIconImage={true}
-            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -1396,20 +1382,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginRight={number(
-              'Left Icon MarginRight',
+            leftIconMarginBottom={number(
+              'Left Icon MarginBottom',
               10,
               {},
               KnobsGroup.LEFT_ICON,
             )}
-            rightIconMarginLeft={number(
-              'Right Icon MarginLeft',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
             leftIconImage={require('../../assets/resources/ic_union_white.png')}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
         </View>
 
@@ -1422,25 +1401,22 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <LeftIconFeature />
-          <RightIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
-  .add('Card With Top Icon, Text', () => (
+  .add('Card With Bottom Icon, Text', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -1482,7 +1458,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1500,7 +1476,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1511,7 +1487,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
-            showLeftIconImage={true}
+            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -1519,13 +1495,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
+            rightIconMarginTop={number(
+              'Right Icon MarginTop',
               10,
               {},
-              KnobsGroup.LEFT_ICON,
+              KnobsGroup.RIGHT_ICON,
             )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
 
           <View style={SBStyle.spacing} />
@@ -1561,7 +1537,7 @@ storiesOf('Button', module)
             buttonBackgroundColor={select(
               'Button Color',
               mColor,
-              mColor.blue,
+              mColor.orange,
               KnobsGroup.BUTTON,
             )}
             buttonBorderRadius={number(
@@ -1591,7 +1567,7 @@ storiesOf('Button', module)
             fontcolor={select(
               'Text Color',
               mColor,
-              mColor.white,
+              mColor.coolGrey100,
               KnobsGroup.TEXT,
             )}
             fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
@@ -1602,7 +1578,7 @@ storiesOf('Button', module)
               OptionFontWeight.Bold,
               KnobsGroup.TEXT,
             )}
-            showLeftIconImage={true}
+            showRightIconImage={true}
             iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
             iconHeight={number(
               'Icon Height Size',
@@ -1610,13 +1586,13 @@ storiesOf('Button', module)
               {},
               KnobsGroup.ICON_SIZE,
             )}
-            leftIconMarginBottom={number(
-              'Left Icon MarginBottom',
+            rightIconMarginTop={number(
+              'Right Icon MarginTop',
               10,
               {},
-              KnobsGroup.LEFT_ICON,
+              KnobsGroup.RIGHT_ICON,
             )}
-            leftIconImage={require('../../assets/resources/ic_union_white.png')}
+            rightIconImage={require('../../assets/resources/ic_union_white.png')}
           />
         </View>
 
@@ -1629,24 +1605,22 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
+      <PropsContent
+        propsTitle={ButtonStoriesContent.PROPS_TITLE}
+        propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}>
+        <ButtonFeature />
+        <TextFeature />
+        <LeftIconFeature />
+        <RightIconFeature />
+      </PropsContent>
 
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <LeftIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTON_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTON_CODE}
+      />
     </View>
   ))
-  .add('Card With Bottom Icon, Text', () => (
+  .add('Button Group', () => (
     <View>
       {/* HEADER */}
       <HeaderContent
@@ -1656,174 +1630,85 @@ storiesOf('Button', module)
 
       {/* /USAGE */}
       <View>
-        <View style={SBStyle.displayUsageContainer}>
-          {/* Default Button */}
-          <Button
-            onPress={action('clicked-default-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Default Button Text',
-              'Default Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
-
-          <View style={SBStyle.spacing} />
-
-          {/* Outline Button */}
-          <Button
-            onPress={action('clicked-outline-button')}
-            buttonFlexDirection={OptionFlexDirection.column}
-            buttonWidth={select(
-              'Button Width',
-              OptionButtonWidth,
-              OptionButtonWidth.Hundred_Percent_Width,
-              KnobsGroup.BUTTON,
-            )}
-            buttonJustifyContent={select(
-              'Button JustifyContent',
-              OptionJustifyContent,
-              `${OptionJustifyContent.center}`,
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingVertical={number(
-              'Button Padding Vertical',
-              18,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonPaddingHorizontal={number(
-              'Button Padding Horizontal',
-              20,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBackgroundColor={select(
-              'Button Color',
-              mColor,
-              mColor.blue,
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderRadius={number(
-              'Button Border Radius',
-              7,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderWidth={number(
-              'Button Border Width',
-              3,
-              {},
-              KnobsGroup.BUTTON,
-            )}
-            buttonBorderColor={select(
-              'Button Border Color',
-              mColor,
-              mColor.CoolGrey040,
-              KnobsGroup.BUTTON,
-            )}
-            showButtonText={true}
-            buttonText={text(
-              'Outline Button Text',
-              'Outline Button Text',
-              KnobsGroup.STRING,
-            )}
-            fontcolor={select(
-              'Text Color',
-              mColor,
-              mColor.white,
-              KnobsGroup.TEXT,
-            )}
-            fontSize={select('Text Size', mFont, 16, KnobsGroup.TEXT)}
-            fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
-            fontWeight={select(
-              'Text Weight',
-              OptionFontWeight,
-              OptionFontWeight.Bold,
-              KnobsGroup.TEXT,
-            )}
-            showRightIconImage={true}
-            iconWidth={number('Icon Width Size', 20, {}, KnobsGroup.ICON_SIZE)}
-            iconHeight={number(
-              'Icon Height Size',
-              20,
-              {},
-              KnobsGroup.ICON_SIZE,
-            )}
-            rightIconMarginTop={number(
-              'Right Icon MarginTop',
-              10,
-              {},
-              KnobsGroup.RIGHT_ICON,
-            )}
-            rightIconImage={require('../../assets/resources/ic_union_white.png')}
-          />
+        <View style={SBStyle.displayUsageHorContainer}>
+          <ButtonGroup>
+            <Button
+              shadow={false}
+              onPress={action('clicked-default-button')}
+              buttonWidth={'auto'}
+              buttonBackgroundColor={select(
+                'Button Color',
+                mColor,
+                mColor.orange,
+                KnobsGroup.BUTTON,
+              )}
+              buttonBorderRadius={0}
+              showButtonText={true}
+              fontcolor={select(
+                'Text Color',
+                mColor,
+                mColor.coolGrey100,
+                KnobsGroup.TEXT,
+              )}
+              fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+              buttonText={'One'}
+            />
+            <Button
+              shadow={false}
+              onPress={action('clicked-default-button')}
+              buttonWidth={'auto'}
+              buttonBackgroundColor={select(
+                'Button Color',
+                mColor,
+                mColor.orange,
+                KnobsGroup.BUTTON,
+              )}
+              buttonBorderRadius={0}
+              showButtonText={true}
+              fontcolor={select(
+                'Text Color',
+                mColor,
+                mColor.coolGrey100,
+                KnobsGroup.TEXT,
+              )}
+              fontFamily={(mFont.defaultType, KnobsGroup.TEXT)}
+              buttonText={'Two'}
+            />
+            <Button
+              shadow={false}
+              onPress={action('clicked-default-button')}
+              buttonWidth={'auto'}
+              buttonPaddingVertical={20}
+              buttonBackgroundColor={select(
+                'Button Color',
+                mColor,
+                mColor.orange,
+                KnobsGroup.BUTTON,
+              )}
+              buttonBorderRadius={0}
+              showLeftIconImage={true}
+              iconWidth={20}
+              iconHeight={20}
+              leftIconImage={require('../../assets/resources/ic_union_white.png')}
+            />
+            <Button
+              shadow={false}
+              onPress={action('clicked-default-button')}
+              buttonWidth={'auto'}
+              buttonPaddingVertical={20}
+              buttonBackgroundColor={select(
+                'Button Color',
+                mColor,
+                mColor.orange,
+                KnobsGroup.BUTTON,
+              )}
+              buttonBorderRadius={0}
+              showLeftIconImage={true}
+              iconWidth={20}
+              iconHeight={20}
+              leftIconImage={require('../../assets/resources/home.png')}
+            />
+          </ButtonGroup>
         </View>
 
         <UsageContent
@@ -1835,20 +1720,9 @@ storiesOf('Button', module)
         />
       </View>
 
-      {/* PROPS */}
-      <View>
-        <PropsContent
-          propsTitle={ButtonStoriesContent.PROPS_TITLE}
-          propsInstruction={ButtonStoriesContent.PROPS_INSTRUCTION}
-        />
-
-        <View>
-          <ButtonFeature />
-          <TextFeature />
-          <RightIconFeature />
-        </View>
-      </View>
-
-      <View style={SBStyle.hairline} />
+      <ComponentContent
+        componentTitle={ButtonStoriesContent.COMPONENT_BUTTONGROUP_TITLE}
+        componentCode={ButtonStoriesContent.COMPONENT_BUTTONGROUP_CODE}
+      />
     </View>
   ));

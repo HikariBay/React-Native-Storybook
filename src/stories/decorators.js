@@ -7,6 +7,7 @@ import {mColor, mStyle, mTheme} from '../helpers/appStyle';
 // SB Components
 import SyntaxDarculaComponent from '../components/SB/syntaxDarculaComponent';
 import SyntaxOkaidiaComponent from '../components/SB/syntaxOkaidiaComponent';
+import SeparateCollipse from '../components/SB/separateCollipse';
 
 export const BufferView = storyFn => (
   <ScrollView style={{...mStyle.mainContainer}}>
@@ -32,39 +33,53 @@ export const UsageContent = ({
   usageFullCode,
 }) => (
   <View>
-    <Text style={SBStyle.headerSubtextStyle}>{usageTitle}</Text>
-    <Text style={SBStyle.headerDescription}>{usageImportText}</Text>
-
-    <SyntaxOkaidiaComponent code={importCode} />
-
-    <Text style={SBStyle.headerDescription}>{usageFullCodeText}</Text>
-
-    <SyntaxOkaidiaComponent code={usageFullCode} />
-
     <View style={SBStyle.hairline} />
+
+    <View style={SBStyle.spacing} />
+
+    <SeparateCollipse
+      headerTitle={
+        <Text style={SBStyle.buttonHeaderDescription}>{usageTitle}</Text>
+      }>
+      <Text style={SBStyle.headerDescription}>{usageImportText}</Text>
+      <SyntaxOkaidiaComponent code={importCode} />
+      <Text style={SBStyle.headerDescription}>{usageFullCodeText}</Text>
+      <SyntaxOkaidiaComponent code={usageFullCode} />
+    </SeparateCollipse>
+    <View style={SBStyle.minueSpacing} />
   </View>
 );
 
-export const PropsContent = ({propsTitle, propsInstruction}) => (
+export const PropsContent = ({propsTitle, propsInstruction, children}) => (
   <View>
-    <Text style={SBStyle.headerSubtextStyle}>{propsTitle}</Text>
+    <View style={SBStyle.spacing} />
 
-    <Text style={SBStyle.headerDescription}>{propsInstruction}</Text>
+    <SeparateCollipse
+      headerTitle={
+        <Text style={SBStyle.buttonHeaderDescription}>{propsTitle}</Text>
+      }>
+      <Text style={SBStyle.headerSubtextStyle}>{propsTitle}</Text>
 
-    <View style={SBStyle.wholeViewSpacing} />
+      <Text style={SBStyle.headerDescription}>{propsInstruction}</Text>
+      <View style={SBStyle.wholeViewSpacing} />
+      {children}
+    </SeparateCollipse>
+    <View style={SBStyle.minueSpacing} />
   </View>
 );
 
-export const ComponentAndStyleSheetContent = ({
-  componentTitle,
-  componentCode,
-  styleSheetTitle,
-  styleSheetCode,
-}) => (
+export const ComponentContent = ({componentTitle, componentCode}) => (
   <View>
-    <Text style={SBStyle.componentHeaderStyle}>{componentTitle}</Text>
+    <View style={SBStyle.spacing} />
 
-    <SyntaxDarculaComponent code={componentCode} />
+    <SeparateCollipse
+      headerTitle={
+        <Text style={SBStyle.buttonHeaderDescription}>{componentTitle}</Text>
+      }>
+      <SyntaxDarculaComponent code={componentCode} />
+    </SeparateCollipse>
+    <View style={SBStyle.minueSpacing} />
+    <View style={SBStyle.hairline} />
   </View>
 );
 
@@ -118,7 +133,8 @@ export const SBStyle = StyleSheet.create({
     ...mStyle.message,
     textAlign: 'left',
     paddingVertical: 10,
-    color: mColor.coolGrey100,
+    color: mColor.black,
+    fontWeight: 'bold',
   },
 
   headerSubtextStyle: {
@@ -142,12 +158,13 @@ export const SBStyle = StyleSheet.create({
   },
 
   displayUsageContainer: {
-    paddingVertical: 40,
+    paddingVertical: 20,
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   displayUsageHorContainer: {
-    paddingVertical: 40,
+    paddingVertical: 20,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -158,6 +175,10 @@ export const SBStyle = StyleSheet.create({
     textAlign: 'left',
     paddingTop: 10,
     paddingBottom: 10,
+  },
+
+  minueSpacing: {
+    marginVertical: -10,
   },
 
   spacing: {
